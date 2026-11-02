@@ -107,7 +107,11 @@ class CanvasWorkflow:
         duration = int(duration)
         if not 1 <= duration <= 60:
             raise CanvasError("时长须为 1–60 秒且必须符合所选模型的实际约束")
-        settings.update(model=model, duration=duration, global_prompt=str(global_prompt).strip(),
+        incoming_prompt = str(global_prompt).strip()
+        if settings.get("tasks") and (settings.get("model") != model or
+                settings.get("duration") != duration or settings.get("global_prompt") != incoming_prompt):
+            raise CanvasError("已有即梦草稿，不能悄悄更改模型、时长或全局提示词。请新建项目再调整。")
+        settings.update(model=model, duration=duration, global_prompt=incoming_prompt,
                         mode="m2v")
         settings.pop("quote", None)
         self._save(project)
@@ -152,6 +156,8 @@ class CanvasWorkflow:
                 "prompt": prompt, "hashes": hashes, "model": config["model"],
                 "duration": config["duration"], "mode": "m2v"}, sort_keys=True).encode()).hexdigest()
             task = tasks.setdefault(gid, {})
+            if task.get("status") == "node_create_unknown":
+                raise CanvasError("节点创建结果不确定；请先在即梦画布核对，不自动创建第二个节点")
             if task.get("node_id"):
                 if task.get("fingerprint") != fingerprint:
                     raise CanvasError(f"图片组 {gid} 的提示词或素材发生变化；已有草稿不能静默复用，请新建项目")
@@ -165,9 +171,7 @@ class CanvasWorkflow:
                                              "--import-kind", "local_upload"], timeout=180)
                 if isinstance(response, dict) and response.get("resourceId") not in (None, rid):
                     raise CanvasError("资源上传返回的 identity 与预留 ID 不同")
-            # An interrupted create may have created a node; do not create a second one automatically.
-            if task.get("status") == "node_create_unknown":
-                raise CanvasError("上次节点创建结果不明，请在即梦画布核对后处理，避免重复创建")
+            # Node create has no caller-provided idempotency key: mark unknown before the write.
             task["status"] = "node_create_unknown"
             self._save(project)
             data = invoke(self.cli, ["node", "create", "video", "--project-id", canvas_id,
@@ -212,6 +216,19 @@ class CanvasWorkflow:
         if not q or approved_ceiling != q.get("ceiling"):
             raise CanvasError("授权报价不匹配；必须重新查看积分报价")
         tasks = [config["tasks"][gid] for gid in q["group_ids"]]
+        selected = {g["id"]: g for g in project["groups"] if g.get("selected") and not g.get("needs_review")}
+        if set(selected) != set(q["group_ids"]):
+            raise CanvasError("选中的图片组已改变，请重新准备并报价")
+        for task in tasks:
+            g = selected[task["group_id"]]
+            current_prompt = "\n".join(x for x in (config.get("global_prompt", ""), g.get("prompt", "").strip()) if x).strip()
+            if current_prompt != task["prompt"]:
+                raise CanvasError("图片组提示词已变化，拒绝使用旧草稿扣费")
+            files = [project_asset(project, g[f"repaired_{side}"]) if g.get(f"repaired_{side}") else
+                     original_frame(project, g[f"frame_{side}"], self.service.config["ffmpeg"],
+                                    self.service.config["ffprobe"]) for side in ("a", "b")]
+            if [_sha(file) for file in files] != task["images"]:
+                raise CanvasError("图片组图片已变化，拒绝使用旧草稿扣费")
         if any(t.get("status") != "draft" or t.get("submit_id") for t in tasks):
             raise CanvasError("任务已提交或状态改变，不能重复扣费")
         # Second quote immediately before approval, bounded by the amount shown in UI.
