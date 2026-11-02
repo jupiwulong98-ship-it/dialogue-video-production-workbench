@@ -109,7 +109,7 @@ class Service:
                 if progress:
                     progress(.75 + .18 * index / max(1, len(proposals)), f'二次检查与选图 {index + 1}/{len(proposals)}')
                 choices = refinement_frames(proposal, frames)
-                context = ('这是已识别的一段连续人物交流；只从本段里选最佳的一组 A/B，不拆成多组。'
+                context = ('复核任务：这是已识别的一段连续人物交流；只从本段里选最佳的一组 A/B，不拆成多组。'
                            '附件0和1是初步识别的人物身份锚点，其余来自同段的不同镜头/时刻。'
                            '必须为两个不同真人、同一连续交流的标准正反打，两张图分别是清楚的单人主体，'
                            '脸部可见、无遮挡或少遮挡、接近正脸、画面不模糊、表情自然、无字幕压脸。'
