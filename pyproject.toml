@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dialogue-video-tool"
+version = "0.1.0"
+description = "Mac first dialogue video validation pipeline"
+requires-python = ">=3.11,<3.13"
+dependencies = ["Pillow>=10,<13", "jsonschema>=4.22,<5", "scenedetect>=0.7.2,<0.8", "opencv-python-headless>=4.8,<5"]
+
+[project.optional-dependencies]
+repair = ["torch>=2.2,<3", "numpy>=1.26,<3"]
+test = ["pytest>=8,<10"]
+desktop = ["pywebview>=5,<7"]
+
+[project.scripts]
+dialogue-tool = "dialogue_tool.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["dialogue_tool*"]
+
+[tool.setuptools.package-data]
+dialogue_tool = ["ui/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

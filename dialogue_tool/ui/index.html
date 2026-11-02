@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'">
+<title>对话视频工具</title>
+<style>
+:root{color-scheme:dark;--bg:#111215;--panel:#191b20;--raised:#22252c;--line:#2b2e36;--ink:#e5e7ed;--muted:#9298a6;--blue:#7599ff;--accent:#527bfa;--soft:#29354f;--green:#83c4aa;--amber:#d6b782}
+*{box-sizing:border-box}html,body{height:100%;overflow:hidden}body{margin:0;background:var(--bg);color:var(--ink);font:13px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}button,input,textarea,select{font:inherit}button{border:1px solid var(--line);border-radius:6px;padding:8px 11px;background:var(--raised);color:var(--ink);cursor:pointer;white-space:nowrap;transition:background .12s,border-color .12s}button:hover{background:#30343d;border-color:#464d5c}button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}button:disabled{opacity:.4;cursor:default}button.primary{background:var(--accent);border-color:var(--accent);color:white;font-weight:550}button.primary:hover{background:#658aff}button.ghost{background:transparent}button.small{font-size:11px;padding:5px 8px}button.icon{padding:5px 8px;font-size:17px;line-height:18px}input,select,textarea{background:#14161a;border:1px solid var(--line);border-radius:6px;padding:8px;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--accent)}input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;margin:0;cursor:pointer}textarea{resize:vertical;line-height:1.75;width:100%;min-height:144px}h1,h2,h3,p{margin:0}h2{font-size:14px;font-weight:600}.muted,.note{color:var(--muted)}.note{font-size:11px;line-height:1.7}.hidden{display:none!important}.mono{font-variant-numeric:tabular-nums}.tag{display:inline-flex;align-items:center;gap:5px;padding:3px 6px;background:#282a31;border:1px solid #353841;border-radius:4px;font-size:10px;color:var(--muted)}.tag.amber{color:var(--amber);background:#302a21;border-color:#483d2b}.dot{width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block}.app-shell{height:calc(100% - 30px);display:grid;grid-template-columns:216px minmax(0,1fr)}
+.sidebar{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}.brand{height:60px;padding:0 17px;display:flex;align-items:center;gap:9px;font-weight:650;font-size:14px;letter-spacing:.2px}.brand-mark{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:#2b3a63;color:#a8c0ff;font-size:21px}.brand small{margin-left:auto;color:#777f8e;font-size:9px;letter-spacing:.7px;font-weight:400}.project-switch{padding:0 12px 15px;border-bottom:1px solid var(--line)}.overline{display:block;color:#747d8d;font-size:10px;letter-spacing:1.1px;margin-bottom:8px}.project-picker{width:100%;font-size:11px;padding:9px 7px;overflow:hidden;text-overflow:ellipsis}.side-heading{padding:17px 14px 10px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#b7bdc9}.side-heading span{display:flex;align-items:center;gap:7px}.count{font-size:10px;border:1px solid #383c45;border-radius:4px;padding:1px 5px;color:var(--muted)}.group-list{flex:1;overflow:auto;padding:0 9px 12px;min-height:0}.group-row{position:relative;border:1px solid transparent;border-radius:7px;margin-bottom:7px;background:#1c1e24;overflow:hidden}.group-row:hover{background:#242730}.group-row.active{background:#252d40;border-color:#536fa6}.group-open{display:block;border:0;border-radius:0;background:transparent!important;text-align:left;width:100%;padding:12px 10px 9px}.group-row .include{position:absolute;right:10px;top:13px;z-index:1}.group-name{font-size:12px;font-weight:550;margin-bottom:9px;padding-right:18px}.group-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:5px}.group-thumbs img{display:block;width:100%;height:43px;object-fit:cover;border-radius:3px;background:#101115}.group-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:#9ba5b7}.side-empty{font-size:11px;line-height:1.8;color:#737e90;padding:25px 8px}.side-bottom{padding:13px 14px;border-top:1px solid var(--line)}.side-bottom .summary{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:13px}.side-bottom button{width:100%;text-align:left;font-size:11px;color:var(--muted);padding:7px 0;border:0}
+.main{display:flex;flex-direction:column;min-width:0;min-height:0}.topbar{height:60px;min-height:60px;padding:0 20px;border-bottom:1px solid var(--line);background:#1b1d22;display:flex;gap:12px;align-items:center}.breadcrumb{display:flex;align-items:center;gap:9px;flex:1;min-width:0}.breadcrumb .muted{font-size:11px;white-space:nowrap}.project-title{font-size:13px;font-weight:550;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.toolbar{display:flex;align-items:center;gap:8px}.toolbar-sep{height:19px;border-left:1px solid var(--line);margin:0 2px}.dirty-label{font-size:10px;color:var(--muted);white-space:nowrap;min-width:35px}.sourcebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;border-bottom:1px solid var(--line);min-height:72px}.range{display:flex;align-items:center;gap:7px;font-size:11px;white-space:nowrap}.range input{width:65px;padding:6px 7px;font-size:11px}.range input#end{width:75px}.range-note{font-size:10px;color:#747e8d;margin-top:6px}.analysis-actions{display:flex;gap:7px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 272px;flex:1;min-height:0}.stage{min-height:0;min-width:0;display:flex;flex-direction:column}.stage-heading{height:57px;min-height:57px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:10px}.stage-heading .title{display:flex;align-items:center;gap:10px}.stage-heading h1{font-size:14px;font-weight:550}.stage-heading .note{font-size:10px}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 18px;flex:1;min-height:170px}.preview{display:flex;flex-direction:column;min-width:0;min-height:0;border:1px solid var(--line);border-radius:8px;background:#0c0d10;overflow:hidden}.preview.active{border-color:#6889d3;box-shadow:0 0 0 1px #6889d329}.preview-header{height:40px;min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 10px;background:#1a1c22;border-bottom:1px solid #262931}.side-target{border:0!important;background:transparent!important;padding:0;font-size:11px;display:flex;align-items:center;gap:7px}.letter{width:20px;height:20px;display:inline-grid;place-items:center;background:#30343e;color:#a5adbb;border-radius:4px;font-size:10px;font-weight:650}.preview.active .letter{background:#4a6ac0;color:white}.image-area{flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:80px;cursor:pointer;overflow:hidden;background:radial-gradient(ellipse at center,#191b20 0%,#0e0f12 75%)}.image-area img{width:100%;height:100%;max-height:100%;position:absolute;inset:0;object-fit:contain}.preview-footer{display:flex;align-items:center;justify-content:space-between;min-height:39px;padding:8px 10px;background:#181a1f;color:var(--muted);font-size:10px;gap:5px}.repair-state{color:var(--green)}.stage-caption{color:#767f90;font-size:10px;text-align:center;padding-bottom:16px;line-height:1.6}.filmstrip{height:184px;min-height:184px;border-top:1px solid var(--line);background:#17191e;display:flex;flex-direction:column}.film-heading{height:45px;min-height:45px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:10px}.film-heading h2{font-size:11px;font-weight:500}.film-heading .label{display:flex;align-items:center;gap:9px}.target-chip{font-size:10px;color:#a9c0ff;background:#29354f;padding:4px 6px;border-radius:4px}.pagination{display:flex;gap:7px;align-items:center;color:var(--muted);font-size:10px}.frames{display:flex;gap:9px;overflow-x:auto;overflow-y:hidden;padding:0 16px 11px;flex:1;align-items:flex-start}.candidate{padding:0;flex:0 0 130px;border-radius:5px;overflow:hidden;text-align:left;background:#1d2027;border:1px solid #30343c;position:relative}.candidate:hover{border-color:#6f809c}.candidate.selected-a,.candidate.selected-b{border-color:#6a8ee8}.candidate img{width:128px;height:73px;object-fit:cover;display:block;background:#0f1013}.candidate-meta{display:flex;justify-content:space-between;padding:7px 7px 6px;font-size:10px;color:#a2aaba}.candidate-badge{position:absolute;top:5px;left:5px;background:#4b70d1;color:white;border-radius:3px;padding:2px 5px;font-size:9px}.film-empty{align-self:center;font-size:11px;color:#727d8f;line-height:1.7}.inspector{border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;overflow:auto;min-height:0}.inspector-heading{height:57px;min-height:57px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid var(--line)}.inspector-heading h2{font-size:12px}.inspector-section{padding:18px 17px;border-bottom:1px solid var(--line)}.field-label{display:flex;justify-content:space-between;font-size:11px;align-items:center;margin-bottom:11px}.field-label span:last-child{font-size:10px;color:#7e8798}.prompt-note{font-size:10px;color:#818b9b;line-height:1.7;margin-top:9px}.repair-action{width:100%;margin-top:12px;font-size:11px}.reason{font-size:11px;line-height:1.85;color:#9ba4b4}.facts{display:grid;grid-template-columns:1fr auto;gap:9px;font-size:10px;color:#818b9b}.facts strong{color:#c3cad6;font-weight:400}.inspector-foot{padding:15px 17px;margin-top:auto}.danger{color:#c99797!important}.welcome,.stage-empty{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px}.welcome-icon{width:54px;height:54px;display:grid;place-items:center;border:1px solid #36425c;background:#222c40;color:#9cb6ff;border-radius:14px;font-size:31px;margin-bottom:22px}.welcome h2,.stage-empty h2{font-size:18px;font-weight:500;margin-bottom:11px}.welcome p,.stage-empty p{font-size:12px;line-height:1.9;color:var(--muted);margin-bottom:22px}.welcome .note{font-size:10px;margin-top:18px}.stage-empty{min-height:160px}.stage-empty h2{font-size:15px}.stage-empty p{font-size:11px;max-width:350px}.status{height:30px;background:#1a1c21;border-top:1px solid var(--line);display:flex;align-items:center;padding:0 14px;gap:9px;font-size:10px;color:#8993a3}.status-message{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.track{width:90px;height:3px;background:#313640;border-radius:3px;overflow:hidden}.fill{height:100%;background:var(--blue);width:0;transition:width .3s}.status-end{padding-left:10px;border-left:1px solid var(--line);font-size:9px;color:#747d8b}.error{font-size:11px;padding:10px 20px;background:#352423;color:#e2ada4;border-bottom:1px solid #5a3733;max-height:90px;overflow:auto;overflow-wrap:anywhere}.modal{position:fixed;inset:0;background:#080a10c9;z-index:20;display:flex;align-items:center;justify-content:center;padding:30px;backdrop-filter:blur(6px)}.dialog{background:#1c1f26;border:1px solid #3b414d;border-radius:12px;padding:22px;width:min(1060px,95vw);max-height:94vh;overflow:auto;box-shadow:0 24px 100px #0007}.dialog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;gap:20px}.dialog-header h2{font-size:14px}.canvas-wrap{background:#101216;border:1px solid #303640;border-radius:6px;overflow:hidden;line-height:0;margin:18px 0}canvas{display:block;width:100%;height:auto;cursor:crosshair;touch-action:none}.modal-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:11px;flex-wrap:wrap}.modal-bottom label{display:flex;gap:7px;align-items:center;color:#afb7c5}.env-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:13px 0;gap:25px}.env-row span{font-size:11px;color:var(--muted);overflow-wrap:anywhere;text-align:right}.toast{position:fixed;bottom:49px;left:50%;transform:translateX(-50%);background:#30394b;border:1px solid #52617d;color:#e6edff;border-radius:8px;padding:12px 19px;z-index:40;font-size:12px;box-shadow:0 8px 28px #0005;max-width:80vw}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:#363c48;border-radius:6px}::-webkit-scrollbar-track{background:transparent}
+.group-filters{display:flex;gap:4px;padding:0 10px 12px}.group-filters button{flex:1;padding:7px 3px;border:0;background:transparent;font-size:10px;color:var(--muted)}.group-filters button.active{background:#2a344a;color:#b7caff}.group-filters b{font-weight:400;margin-left:3px}.tag.ready{color:var(--green);border-color:#345245;background:#23332b}
+.shot-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-height:67vh;overflow:auto;padding:3px}.shot-card{white-space:normal;padding:0;text-align:left;overflow:hidden;background:#15181e}.shot-card img{display:block;width:100%;height:145px;object-fit:contain;background:#090b10}.shot-card strong,.shot-card span{display:block;padding:0 10px}.shot-card strong{font-size:12px;margin:10px 0 6px}.shot-card span{font-size:10px;color:var(--muted);margin-bottom:10px}
+@media(max-width:1150px){.app-shell{grid-template-columns:190px minmax(0,1fr)}.workspace{grid-template-columns:minmax(0,1fr) 238px}.topbar,.sourcebar{padding-left:15px;padding-right:15px}.comparison{padding-left:14px;padding-right:14px;gap:8px}.stage-heading{padding:0 14px}.breadcrumb .muted,.toolbar-sep,.hide-compact{display:none}.inspector-section{padding:15px 13px}.sourcebar{gap:6px}.analysis-actions button{font-size:10px;padding:7px 8px}.preview-header,.preview-footer{padding-left:7px;padding-right:7px}.filmstrip{height:166px;min-height:166px}.candidate{flex-basis:116px}.candidate img{width:114px;height:64px}.range-note{font-size:9px}.brand{padding:0 13px;font-size:13px}.brand small{font-size:8px}.stage-heading .note{display:none}.sourcebar .range{gap:5px}}
+</style>
+</head>
+<body>
+<div class="app-shell">
+ <aside class="sidebar">
+  <div class="brand"><span class="brand-mark">◫</span>对话视频工具<small>MAC</small></div>
+  <div class="project-switch"><label class="overline" for="projectPicker">本地项目</label><select id="projectPicker" class="project-picker" onchange="selectProject(this.value)"><option>正在载入…</option></select></div>
+  <div class="side-heading"><span>对话图片组 <b class="count" id="groupCount">0</b></span><button id="addGroupBtn" class="icon ghost" onclick="addGroup()" aria-label="手动添加图片组" title="手动添加图片组">＋</button></div>
+  <div class="group-filters"><button id="readyFilter" class="active" onclick="setGroupFilter('ready')">对话结果 <b id="readyCount">0</b></button><button id="reviewFilter" onclick="setGroupFilter('review')">待确认 <b id="reviewCount">0</b></button></div><div class="group-list" id="groups"></div>
+  <div class="side-bottom"><div class="summary"><span>选中导出 <b id="selectedCount">0</b> 组</span><span>已修复 <b id="repairCount">0</b> 张</span></div><button class="ghost" onclick="environment()">⚙ &nbsp;运行环境<span style="float:right;color:#626d80">本机</span></button></div>
+ </aside>
+ <main class="main">
+  <header class="topbar"><div class="breadcrumb"><span class="muted">工作区</span><span class="muted">/</span><span id="sourceName" class="project-title">对话素材整理</span></div><div class="toolbar"><button class="ghost small" onclick="chooseVideo()">＋ 导入视频</button><span class="toolbar-sep"></span><span class="dirty-label" id="dirtyLabel"></span><button class="small" id="saveBtn" onclick="saveDraft()">保存</button><button class="primary small" id="exportBtn" onclick="exportGroups()">导出图片组 ↗</button></div></header>
+  <div id="error" class="error hidden"></div>
+  <section id="welcome" class="welcome"><div class="welcome-icon">◫</div><h2>从一段对话开始</h2><p>导入视频，提取人物的正反打画面。<br>检查配组、修复图片，再按组导出。</p><button class="primary" onclick="chooseVideo()">选择本地视频</button><p class="note">原视频保留原位 · Codex 分析需要联网及可用账号</p></section>
+  <section id="sourcebar" class="sourcebar hidden"><div><div class="range"><span>分析范围</span><input aria-label="起始秒数" id="start" type="number" min="0" value="0"><span>—</span><input aria-label="结束秒数" id="end" type="number" min="0" placeholder="到片尾"><span>秒</span></div><p id="rangeNote" class="range-note">建议先选短片段检查效果</p></div><div class="analysis-actions"><button id="shotsBtn" onclick="openShots()">全部镜头</button><button id="analyzeBtn" class="primary" onclick="analyze(false)">开始拆解</button></div></section>
+  <div id="workspace" class="workspace hidden">
+   <section class="stage">
+    <div class="stage-heading"><div class="title"><h1 id="activeTitle">图片预览</h1><span class="tag amber" id="reviewBadge">待人工复核</span></div><div class="toolbar"><span id="activePosition" class="note mono"></span><button id="replaceBtn" class="small ghost" onclick="toggleCandidates()">更换截图</button></div></div>
+    <div id="editorEmpty" class="stage-empty"><div class="welcome-icon" style="width:40px;height:40px;font-size:24px;margin-bottom:15px">◩</div><h2 id="emptyTitle">还没有对话图片组</h2><p id="emptyDescription">点击上方“开始拆解”，自动识别对话并挑选两张截图。</p><button id="addManualBtn" class="small" onclick="addGroup()">＋ 手动配组</button></div>
+    <div id="comparison" class="comparison hidden"></div>
+    <p id="stageCaption" class="stage-caption hidden">检查两张截图是否属于同一场对话；需要调整时点击“更换截图”</p>
+    <section id="candidatesPanel" class="filmstrip hidden"><div class="film-heading"><div class="label"><h2>候选画面 <span class="muted" id="frameCount">0</span></h2><span class="target-chip" id="targetLabel">选择图片组后换图</span></div><div class="pagination"><span id="pageLabel"></span><button class="small ghost" id="prevPage" onclick="changePage(-1)" aria-label="上一页候选">‹</button><button class="small ghost" id="nextPage" onclick="changePage(1)" aria-label="下一页候选">›</button><button class="small ghost" onclick="toggleCandidates(false)" aria-label="收起候选画面">×</button></div></div><div id="frames" class="frames"></div></section>
+   </section>
+   <aside class="inspector"><div class="inspector-heading"><h2>图片组设置</h2><span class="tag">本地保存</span></div><div id="inspectorContent"></div><div class="inspector-section"><div class="field-label"><span>素材概览</span><span>当前项目</span></div><div class="facts"><span>镜头</span><strong id="shotCount">—</strong><span>候选帧</span><strong id="frameFact">—</strong><span>处理方式</span><strong>本地 LaMa</strong><span>视频生成</span><strong>暂未接入</strong></div><div id="sourcePath" class="prompt-note" style="overflow-wrap:anywhere;margin-top:16px"></div></div><div class="inspector-foot"><p class="note">原图、提示词和修复记录均保存在本地项目中。</p></div></aside>
+  </div>
+ </main>
+</div>
+<footer class="status"><span class="dot" id="statusDot"></span><span class="status-message" id="statusMessage">正在连接本地工具…</span><div class="track"><div class="fill" id="progress"></div></div><span id="statusLabel">本地运行</span><span class="status-end">MAC 验证版 · 0.1</span></footer>
+<div id="maskModal" class="modal hidden"><div class="dialog"><div class="dialog-header"><div><h2 id="maskTitle">局部图片修复</h2><p class="note" style="margin-top:6px">在原图上拖动框选水印区域，完成后检查人物与背景。</p></div><button class="small" onclick="closeMask()">关闭</button></div><div class="canvas-wrap"><canvas id="maskCanvas"></canvas></div><div class="modal-bottom"><label><input type="checkbox" id="applyAll"> 同一位置应用到全部已选图片</label><span class="note" id="rectLabel">尚未框选</span><button class="primary" id="repairBtn" onclick="repair()" disabled>开始本地修复</button></div></div></div>
+<div id="envModal" class="modal hidden"><div class="dialog" style="width:700px"><div class="dialog-header"><h2>本机运行环境</h2><button class="small" onclick="document.getElementById('envModal').classList.add('hidden')">关闭</button></div><div id="envRows"></div></div></div>
+<div id="shotsModal" class="modal hidden"><div class="dialog" style="width:min(1200px,96vw)"><div class="dialog-header"><div><h2 id="shotsTitle">全部镜头</h2><p id="shotsMeta" class="note" style="margin-top:6px"></p></div><button onclick="closeShots()">返回工作区</button></div><p class="note" style="margin-bottom:15px">这里是原片已扫描出的镜头，每个镜头展示一张代表图。点击图片可放大；浏览不会启动 AI 分析。</p><div id="shotGallery" class="shot-gallery"></div></div></div>
+<div id="shotZoom" class="modal hidden" style="z-index:25"><div class="dialog"><div class="dialog-header"><h2 id="shotZoomTitle">镜头原图</h2><div class="toolbar"><button id="prevShot" onclick="moveShot(-1)">上一镜头</button><button id="nextShot" onclick="moveShot(1)">下一镜头</button><button onclick="closeShotZoom()">返回全部镜头</button></div></div><img id="shotZoomImage" alt="镜头原图" style="width:100%;max-height:73vh;object-fit:contain;background:#0c0e12;border-radius:6px"></div></div>
+<div id="toast" class="toast hidden" role="status"></div>
+<script>
+let api, state, draft=[], lastVersion=-1, dirty=false, editRevision=0, savePending=null;
+let activeGroupId=null, targetSide='a', framePage=0, originalView={a:false,b:false}, candidatesOpen=false, groupFilter='ready';
+let maskInfo=null, maskRequest=0, pollPending=null, renderedProjectId=null, draftProjectId=null, groupObserver=null, switchingProject=false;
+let shotObserver=null,shotsProject=null,openedShotsFor=null,shotViewIndex=0,shotViewRequest=0;
+const PAGE_SIZE=32;
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clock=s=>{const t=Math.max(0,Math.round(Number(s||0)*10));return `${Math.floor(t/600)}:${String(Math.floor(t/10)%60).padStart(2,'0')}.${t%10}`};
+const currentGroup=()=>draft.find(g=>g.id===activeGroupId);
+const allFrames=()=>state?.project?.scan?.frames||[];
+const findFrame=id=>allFrames().find(f=>f.id===id);
+const isLocked=()=>!!state?.busy||switchingProject;
+const inGroupFilter=g=>groupFilter==='review'?g.needs_review:!g.needs_review;
+const verificationLabel=g=>g?.needs_review?'待确认':g?.validation_state==='confirmed'?'已人工确认':g?.validation_state==='ready'?'二次检查通过':'历史配组';
+function toast(text){$('toast').textContent=text;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),4000)}
+async function call(fn){try{return await fn()}catch(e){toast(e.message||String(e));return null}}
+function markDirty(){dirty=true;editRevision++;$('dirtyLabel').textContent='未保存'}
+// Serialize snapshots so typing during an in-flight save is included before navigation.
+async function saveDraft(){
+ if(savePending){await savePending;return dirty?saveDraft():true}
+ if(!state?.project||!dirty)return true;
+ const revision=editRevision,projectId=draftProjectId||state.project.id,snapshot=JSON.parse(JSON.stringify(draft));
+ if(projectId!==state.project.id){toast('项目已切换，当前草稿尚未保存');return false}
+ savePending=call(()=>api.save_groups(snapshot,projectId));const ok=await savePending;savePending=null;
+ if(!ok)return false;if(state.project.id!==projectId)return false;
+ if(editRevision!==revision)return saveDraft();
+ dirty=false;$('dirtyLabel').textContent='已保存';return true;
+}
+async function changeProject(action){
+ if(isLocked())return;if(!await saveDraft())return;
+ switchingProject=true;applyBusy();
+ try{await call(action);await poll(true)}finally{switchingProject=false;applyBusy()}
+}
+async function chooseVideo(){await changeProject(()=>api.choose_video())}
+async function selectProject(id){await changeProject(()=>api.select_project(id));$('projectPicker').value=state.project?.id||''}
+async function analyze(scanOnly){if(!await saveDraft())return;await call(()=>api.start_analysis($('start').value,$('end').value,scanOnly));await poll()}
+async function exportGroups(){if(!draft.some(g=>g.selected)){toast('请先勾选要导出的图片组');return}if(!await saveDraft())return;await call(()=>api.choose_export());await poll()}
+async function activateGroup(id){
+ if(isLocked()||!draft.some(g=>g.id===id))return;
+ if(!await saveDraft())return;
+ activeGroupId=id;candidatesOpen=false;originalView={a:false,b:false};locateFrame();renderGroups();renderEditor();renderFrames();
+}
+function locateFrame(){const g=currentGroup();if(!g)return;const i=allFrames().findIndex(f=>f.id===g['frame_'+targetSide]);if(i>=0)framePage=Math.floor(i/PAGE_SIZE)}
+function setTarget(side){if(isLocked()||!['a','b'].includes(side))return;targetSide=side;candidatesOpen=true;locateFrame();renderEditor();renderFrames()}
+async function setGroupFilter(filter){
+ if(isLocked()||!await saveDraft())return;
+ groupFilter=filter;activeGroupId=draft.find(inGroupFilter)?.id||null;candidatesOpen=false;
+ renderGroups();renderEditor();renderFrames();
+}
+function toggleCandidates(value){if(isLocked())return;candidatesOpen=typeof value==='boolean'?value:!candidatesOpen;renderEditor();renderFrames()}
+async function confirmGroup(){
+ const g=currentGroup();if(!g||isLocked())return;
+ g.needs_review=false;g.selected=true;g.validation_state='confirmed';groupFilter='ready';markDirty();
+ renderGroups();renderEditor();await saveDraft();
+}
+function updateCounts(){
+ $('groupCount').textContent=draft.length;
+ $('readyCount').textContent=draft.filter(g=>!g.needs_review).length;$('reviewCount').textContent=draft.filter(g=>g.needs_review).length;
+ $('selectedCount').textContent=draft.filter(g=>g.selected).length;
+ $('repairCount').textContent=draft.reduce((n,g)=>n+Number(!!g.repaired_a)+Number(!!g.repaired_b),0);
+ $('exportBtn').disabled=!!state?.busy||!draft.some(g=>g.selected);
+}
+function renderGroups(){
+ if(groupObserver)groupObserver.disconnect();
+ const visible=draft.map((g,i)=>({g,i})).filter(({g})=>inGroupFilter(g));
+ $('readyFilter').classList.toggle('active',groupFilter==='ready');$('reviewFilter').classList.toggle('active',groupFilter==='review');
+ $('groups').innerHTML=visible.length?visible.map(({g,i})=>`<article class="group-row ${g.id===activeGroupId?'active':''}"><input class="include" aria-label="导出图片组 ${i+1}" type="checkbox" ${g.selected?'checked':''} onchange="selectGroup(${i},this.checked)"><button class="group-open" onclick="activateGroup('${esc(g.id)}')" aria-label="打开图片组 ${i+1}"><div class="group-name">图片组 ${String(i+1).padStart(2,'0')}</div><div class="group-thumbs" data-group-index="${i}"><img id="nav-${i}-a" alt="人物 A 缩略图"><img id="nav-${i}-b" alt="人物 B 缩略图"></div><div class="group-meta"><span>${clock(g.scene_start_seconds??findFrame(g.frame_a)?.seconds)} — ${clock(g.scene_end_seconds??findFrame(g.frame_b)?.seconds)}</span><span>${g.needs_review?'待确认':'已配组'}</span></div></button></article>`).join(''):`<div class="side-empty">${groupFilter==='review'?'这里显示缺少视角或身份不确定的组。':'拆解完成后，这里显示每组两张的对话截图。'}</div>`;
+ const loadGroup=i=>{const g=draft[i];if(g)['a','b'].forEach(s=>loadImage(`nav-${i}-${s}`,g['frame_'+s],g.id,s))};
+ // Only fetch thumbnails for groups visible in the scroll pane.
+ if(typeof IntersectionObserver!=='undefined'){
+  groupObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){loadGroup(Number(entry.target.dataset.groupIndex));groupObserver.unobserve(entry.target)}}),{root:$('groups'),rootMargin:'100px'});
+  document.querySelectorAll('[data-group-index]').forEach(el=>groupObserver.observe(el));
+ }else draft.forEach((_,i)=>loadGroup(i));
+ updateCounts();applyBusy();
+}
+function openShots(){
+ const p=state?.project,shots=p?.scan?.shots||[];
+ if(!shots.length){toast('请先导入并扫描视频');return}
+ if(shotObserver)shotObserver.disconnect();shotsProject=p.id;openedShotsFor=p.id;
+ $('shotsTitle').textContent=`全部镜头 · ${shots.length} 个`;
+ $('shotsMeta').textContent=`${p.name||'当前视频'} · ${clock(p.scan.start||0)} — ${clock(p.scan.end||shots[shots.length-1].end)} · ${p.scan.frames.length} 张候选`;
+ $('shotGallery').innerHTML=shots.map((shot,i)=>`<button class="shot-card" data-shot-frame="${shot.frame_ids[Math.floor(shot.frame_ids.length/2)]}" onclick="viewShot(${i})"><img id="shot-thumb-${i}" alt="镜头 ${i+1}"><strong>镜头 ${String(i+1).padStart(3,'0')}</strong><span>${clock(shot.start)} — ${clock(shot.end)} · ${shot.frame_ids.length} 张候选</span></button>`).join('');
+ $('shotsModal').classList.remove('hidden');
+ const load=(i,frame)=>loadImage(`shot-thumb-${i}`,frame);
+ if(typeof IntersectionObserver!=='undefined'){
+  shotObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const card=entry.target;load(Array.from(card.parentElement.children).indexOf(card),Number(card.dataset.shotFrame));shotObserver.unobserve(card)}}),{root:$('shotGallery'),rootMargin:'150px'});
+  document.querySelectorAll('[data-shot-frame]').forEach(el=>shotObserver.observe(el));
+ }else shots.forEach((shot,i)=>load(i,shot.frame_ids[Math.floor(shot.frame_ids.length/2)]));
+}
+function closeShots(){closeShotZoom();$('shotsModal').classList.add('hidden');if(shotObserver)shotObserver.disconnect()}
+function closeShotZoom(){$('shotZoom').classList.add('hidden');shotViewRequest++}
+async function viewShot(index){
+ const shots=state?.project?.scan?.shots||[],shot=shots[index];if(!shot||state.project.id!==shotsProject)return;
+ shotViewIndex=index;const request=++shotViewRequest;
+ const frame=shot.frame_ids[Math.floor(shot.frame_ids.length/2)];
+ const image=await call(()=>api.get_image(frame,null,null,true));
+ if(!image||request!==shotViewRequest||state.project.id!==shotsProject)return;
+ $('shotZoomTitle').textContent=`镜头 ${String(index+1).padStart(3,'0')} / ${shots.length} · ${clock(shot.start)} — ${clock(shot.end)}`;
+ $('shotZoomImage').src=image.url;$('prevShot').disabled=index===0;$('nextShot').disabled=index===shots.length-1;
+ $('shotZoom').classList.remove('hidden');
+}
+function moveShot(delta){viewShot(shotViewIndex+delta)}
+function updateEmptyStatus(){
+ if(currentGroup())return;
+ const completed=state?.project?.analysis_progress?.step==='complete';
+ $('emptyTitle').textContent=state?.busy?'正在拆解视频':draft.length?(groupFilter==='review'?'暂无待确认的组':'暂无明确配对的组'):completed?'未发现可配组的对话':'还没有对话图片组';
+ $('emptyDescription').textContent=state?.busy?`${state.message}。完成识别、去重和二次检查后，这里会显示每组两张的对话截图。`:draft.length?'可以切换左侧分类查看其他图片组。':completed?'已完成画面检查。可展开候选帧手动配组，或重新导入其他片段。':'点击上方“开始拆解”，自动识别对话并挑选两张截图。';
+}
+function renderEditor(){
+ const g=currentGroup(),index=draft.indexOf(g);
+ $('comparison').classList.toggle('hidden',!g);$('editorEmpty').classList.toggle('hidden',!!g);
+ $('stageCaption').classList.toggle('hidden',!g);$('reviewBadge').classList.toggle('hidden',!g);
+ $('activeTitle').textContent=g?`图片组 ${String(index+1).padStart(2,'0')}`:'图片预览';
+ $('activePosition').textContent=g?`${clock(g.scene_start_seconds??findFrame(g.frame_a)?.seconds)} — ${clock(g.scene_end_seconds??findFrame(g.frame_b)?.seconds)}`:'';
+ $('reviewBadge').textContent=verificationLabel(g);$('reviewBadge').classList.toggle('amber',!!g?.needs_review);$('reviewBadge').classList.toggle('ready',!!g&&!g.needs_review);
+ $('candidatesPanel').classList.toggle('hidden',!candidatesOpen);$('replaceBtn').textContent=candidatesOpen?'收起候选帧':'更换截图';
+ $('targetLabel').textContent=g?`点击候选帧 → 替换 ${targetSide.toUpperCase()}`:'选择图片组后换图';
+ if(!g){updateEmptyStatus();$('comparison').innerHTML='';$('inspectorContent').innerHTML='<div class="inspector-section"><p class="note">选择一个图片组，在这里编辑提示词和修复图片。</p></div>';applyBusy();return}
+ $('comparison').innerHTML=['a','b'].map(s=>{const f=findFrame(g['frame_'+s]),repaired=!!g['repaired_'+s];return `<article class="preview ${targetSide===s?'active':''}"><div class="preview-header"><button class="side-target" onclick="setTarget('${s}')" aria-label="选择人物 ${s.toUpperCase()} 换图"><span class="letter">${s.toUpperCase()}</span><span>人物 ${s.toUpperCase()}</span></button>${repaired?`<button class="small ghost" onclick="toggleOriginal('${s}')">${originalView[s]?'查看修复图':'查看原图'}</button>`:'<span class="note" style="font-size:9px">原图</span>'}</div><div class="image-area" onclick="setTarget('${s}')"><img id="preview-${s}" alt="人物 ${s.toUpperCase()} 预览"></div><div class="preview-footer"><span class="mono">${clock(f?.seconds)} <span class="hide-compact">· 镜头 ${(f?.shot_id??0)+1}</span></span><span class="${repaired&&!originalView[s]?'repair-state':''}">${repaired&&!originalView[s]?'已修复':'原始画面'}</span></div></article>`}).join('');
+ $('inspectorContent').innerHTML=`${g.needs_review?'<div class="inspector-section"><p class="note">此组未通过自动确认，请检查人物及对话关系，必要时换图。</p><button class="primary repair-action" onclick="confirmGroup()">确认这组截图</button></div>':''}<div class="inspector-section"><label class="field-label" for="prompt"><span>本组提示词</span><span>自动保存</span></label><textarea id="prompt" aria-label="本组提示词" placeholder="填写这组图片的视频生成提示词…" oninput="editPrompt(this.value)" onblur="saveDraft()">${esc(g.prompt)}</textarea><p class="prompt-note">当前仅保存提示词，供后续视频生成使用。</p></div><div class="inspector-section"><div class="field-label"><span>局部图片修复</span><span>人物 ${targetSide.toUpperCase()}</span></div><p class="note">在原图上框选水印，使用本地模型填补。原图与修复图分别保留。</p><button class="repair-action" onclick="openMask(${index},'${targetSide}')">⌑ &nbsp;圈选人物 ${targetSide.toUpperCase()} 的修复区域</button></div><div class="inspector-section"><div class="field-label"><span>配组说明</span><span>AI 视觉检查</span></div><p class="reason">${esc(g.verification_reason||g.reason||'手动配组，请检查两张图是否属于同一场对话。')}</p><button class="small ghost danger" style="margin-top:13px" onclick="removeGroup(${index})">移除此组</button></div>`;
+ ['a','b'].forEach(s=>loadImage(`preview-${s}`,g['frame_'+s],originalView[s]?null:g.id,originalView[s]?null:s,originalView[s]));
+ applyBusy();
+}
+function editPrompt(value){const g=currentGroup();if(!g||isLocked())return;g.prompt=value;markDirty()}
+function toggleOriginal(side){if(isLocked())return;originalView[side]=!originalView[side];renderEditor()}
+async function loadImage(elementId,frameId,groupId=null,side=null,original=false){
+ const projectId=state?.project?.id,element=$(elementId);
+ // New manual groups may still be saving. Their raw frames are already available.
+ if(groupId&&!state?.project?.groups?.some(g=>g.id===groupId)){groupId=null;side=null}
+ try{const image=await api.get_image(frameId,groupId,side,original);if(state?.project?.id===projectId&&$(elementId)===element&&element)element.src=image.url}
+ catch(e){if(state?.project?.id===projectId&&$(elementId)===element&&element)element.alt='图片载入失败'}
+}
+async function selectGroup(i,value){if(isLocked())return;draft[i].selected=value;markDirty();updateCounts();await saveDraft()}
+async function useCandidate(frameId){
+ const g=currentGroup();if(!g||isLocked())return;
+ if(!allFrames().some(f=>f.id===frameId))return;
+ if(g['frame_'+(targetSide==='a'?'b':'a')]===frameId){toast('A、B 需要选择两张不同的画面');return}
+ if(g['frame_'+targetSide]===frameId)return;
+ g['frame_'+targetSide]=frameId;g['repaired_'+targetSide]=null;g['mask_'+targetSide]=null;g.needs_review=true;g.selected=false;g.validation_state='uncertain';groupFilter='review';candidatesOpen=false;
+ originalView[targetSide]=false;markDirty();
+ // Repaired asset lookup must use the newly persisted frame references.
+ if(await saveDraft()){renderGroups();renderEditor();renderFrames();await poll()}
+}
+async function removeGroup(i){if(isLocked())return;draft.splice(i,1);if(!draft.some(g=>g.id===activeGroupId))activeGroupId=draft[Math.min(i,draft.length-1)]?.id||null;originalView={a:false,b:false};markDirty();renderGroups();renderEditor();renderFrames();await saveDraft()}
+async function addGroup(){
+ if(isLocked())return;if(!await saveDraft())return;
+ const frames=allFrames();if(frames.length<2){toast('请先提取候选图片');return}
+ const group={id:crypto.randomUUID(),frame_a:frames[0].id,frame_b:frames[1].id,prompt:'',reason:'手动配组',needs_review:true,selected:false,repaired_a:null,repaired_b:null};
+ draft.push(group);activeGroupId=group.id;groupFilter='review';candidatesOpen=true;originalView={a:false,b:false};framePage=0;markDirty();
+ renderGroups();renderEditor();renderFrames();await saveDraft();
+}
+function changePage(delta){if(isLocked())return;const pages=Math.max(1,Math.ceil(allFrames().length/PAGE_SIZE));framePage=Math.max(0,Math.min(pages-1,framePage+delta));renderFrames()}
+function renderFrames(){
+ if(!candidatesOpen){$('frames').innerHTML='';return}
+ const frames=allFrames(),pages=Math.max(1,Math.ceil(frames.length/PAGE_SIZE)),g=currentGroup();
+ framePage=Math.max(0,Math.min(pages-1,framePage));const items=frames.slice(framePage*PAGE_SIZE,(framePage+1)*PAGE_SIZE);
+ $('pageLabel').textContent=frames.length?`${framePage+1} / ${pages}`:'';
+ $('prevPage').disabled=!!state?.busy||framePage===0;$('nextPage').disabled=!!state?.busy||framePage===pages-1;
+ $('frames').innerHTML=items.length?items.map(f=>{const side=g?.frame_a===f.id?'a':g?.frame_b===f.id?'b':null;return `<button class="candidate ${side?'selected-'+side:''}" onclick="useCandidate(${f.id})" aria-label="候选 ${f.id}，${clock(f.seconds)}" ${!g||isLocked()?'disabled':''}><img id="candidate-${f.id}" alt="候选 ${f.id}">${side?`<span class="candidate-badge">${side.toUpperCase()}</span>`:''}<span class="candidate-meta"><span class="mono">${clock(f.seconds)}</span><span>镜头 ${f.shot_id+1}</span></span></button>`}).join(''):'<div class="film-empty">提取候选帧后，可在这里浏览画面并替换 A / B 截图。</div>';
+ items.forEach(f=>loadImage(`candidate-${f.id}`,f.id));
+ $('frames').scrollLeft=0;
+}
+function applyBusy(){
+ const busy=isLocked(),p=state?.project;
+ document.querySelectorAll('.app-shell button,.app-shell input,.app-shell textarea,.app-shell select').forEach(el=>el.disabled=busy);
+ $('start').disabled=busy||!!p?.scan;$('end').disabled=busy||!!p?.scan;
+ $('analyzeBtn').disabled=busy||!p||draft.length>0;
+ $('analyzeBtn').textContent=draft.length?'已拆解':p?.phase==='error'?'继续拆解':'开始拆解';
+ $('shotsBtn').disabled=!p?.scan?.shots?.length;$('shotsBtn').textContent=`全部镜头${p?.scan?.shots?.length?'（'+p.scan.shots.length+'）':''}`;
+ $('replaceBtn').disabled=busy||!allFrames().length;$('addGroupBtn').disabled=busy||allFrames().length<2;$('addManualBtn').disabled=busy||allFrames().length<2;
+ $('saveBtn').disabled=busy||!p;$('exportBtn').disabled=busy||!draft.some(g=>g.selected);
+ const pages=Math.max(1,Math.ceil(allFrames().length/PAGE_SIZE));
+ $('prevPage').disabled=busy||framePage===0;$('nextPage').disabled=busy||framePage>=pages-1;
+ if(!currentGroup())document.querySelectorAll('.candidate').forEach(el=>el.disabled=true);
+}
+function poll(force=false){
+ if(!api)return Promise.resolve();
+ // A project switch must wait for any old read, then request a fresh snapshot.
+ if(pollPending)return force?pollPending.then(()=>poll(true)):pollPending;
+ pollPending=(async()=>{
+  try{state=await api.get_state();$('statusMessage').textContent=state.message;$('statusLabel').textContent=state.busy?'处理中，请保持软件打开':'本地运行';$('statusDot').style.background=state.busy?'var(--blue)':'var(--green)';$('progress').style.width=`${Math.max(0,Math.min(1,state.progress))*100}%`;$('error').classList.toggle('hidden',!state.error);$('error').textContent=state.error||'';
+   if(state.version!==lastVersion&&!dirty){lastVersion=state.version;render()}applyBusy();updateEmptyStatus();
+  }catch(e){$('statusMessage').textContent=e.message||String(e)}finally{pollPending=null}
+ })();return pollPending;
+}
+function render(){
+ const p=state.project,changed=p?.id!==renderedProjectId;
+ $('projectPicker').innerHTML=state.projects.length?state.projects.map(item=>`<option value="${esc(item.id)}" ${p?.id===item.id?'selected':''}>${esc(item.name)}</option>`).join(''):'<option value="">尚未导入视频</option>';
+ $('welcome').classList.toggle('hidden',!!p);$('sourcebar').classList.toggle('hidden',!p);$('workspace').classList.toggle('hidden',!p);
+ if(changed){activeGroupId=null;framePage=0;targetSide='a';candidatesOpen=false;originalView={a:false,b:false};renderedProjectId=p?.id||null}
+ draft=JSON.parse(JSON.stringify(p?.groups||[]));draftProjectId=p?.id||null;
+ if(!p){$('sourceName').textContent='对话素材整理';renderGroups();applyBusy();return}
+ if(changed)groupFilter=!draft.length||draft.some(g=>!g.needs_review)?'ready':'review';
+ if(!draft.some(g=>g.id===activeGroupId&&inGroupFilter(g)))activeGroupId=draft.find(inGroupFilter)?.id||null;
+ $('sourceName').textContent=p.name;$('sourceName').title=p.source;$('sourcePath').textContent=p.source;
+ $('shotCount').textContent=p.scan?.shots?.length??'—';$('frameCount').textContent=p.scan?.frames?.length??0;$('frameFact').textContent=p.scan?.frames?.length??'—';
+ if(p.scan){$('start').value=p.scan.start;$('end').value=p.scan.end}else if(changed){$('start').value=0;$('end').value=''}
+ const ap=p.analysis_progress;$('rangeNote').textContent=p.error_code==='quota_exhausted'?`Codex 额度不足 · 已完成 ${ap?.completed||0}/${ap?.total||0} 批 · 额度恢复后继续`:p.scan?'当前范围已保存 · 完成后直接检查成组截图':'留空结束时间，拆解整部视频 · 使用 Codex 账号额度';
+ $('dirtyLabel').textContent='已保存';renderGroups();renderEditor();renderFrames();applyBusy();
+ if(p.scan?.shots?.length&&!draft.length&&!state.busy&&openedShotsFor!==p.id)openShots();
+}
+async function openMask(index,side){
+ if(isLocked())return;const groupId=draft[index]?.id;if(!groupId)return;
+ if(!await saveDraft())return;const group=currentGroup();if(group?.id!==groupId)return;
+ const projectId=state.project.id,frameId=group['frame_'+side],request=++maskRequest;
+ const stillCurrent=()=>state?.project?.id===projectId&&currentGroup()?.id===groupId&&currentGroup()?.['frame_'+side]===frameId&&request===maskRequest;
+ const image=await call(()=>api.get_image(frameId,null,null,true));
+ if(!image||!stillCurrent())return;
+ const native=new Image();native.onload=()=>{
+  if(!stillCurrent()||isLocked())return;
+  const canvas=$('maskCanvas');canvas.width=native.width;canvas.height=native.height;
+  maskInfo={image:native,group:group.id,frame:frameId,project:projectId,side,width:image.width,height:image.height,rect:null,anchor:null};
+  $('maskTitle').textContent=`人物 ${side.toUpperCase()} · 原图局部修复`;$('applyAll').checked=false;$('rectLabel').textContent='尚未框选';$('repairBtn').disabled=true;paint();$('maskModal').classList.remove('hidden');
+ };native.onerror=()=>toast('原图载入失败，请重试');native.src=image.url;
+}
+function paint(){if(!maskInfo)return;const c=$('maskCanvas').getContext('2d');c.drawImage(maskInfo.image,0,0);if(maskInfo.rect){const [x1,y1,x2,y2]=maskInfo.rect;c.fillStyle='#7599ff44';c.fillRect(x1,y1,x2-x1,y2-y1);c.strokeStyle='#9ab5ff';c.lineWidth=2;c.strokeRect(x1,y1,x2-x1,y2-y1)}}
+function canvasPoint(e){const canvas=$('maskCanvas'),r=canvas.getBoundingClientRect();return [Math.max(0,Math.min(canvas.width,(e.clientX-r.left)/r.width*canvas.width)),Math.max(0,Math.min(canvas.height,(e.clientY-r.top)/r.height*canvas.height))]}
+$('maskCanvas').onpointerdown=e=>{if(!maskInfo)return;maskInfo.anchor=canvasPoint(e);maskInfo.rect=null;$('repairBtn').disabled=true;e.target.setPointerCapture(e.pointerId)};
+$('maskCanvas').onpointermove=e=>{if(!maskInfo?.anchor)return;const [x,y]=canvasPoint(e),[ax,ay]=maskInfo.anchor;maskInfo.rect=[Math.min(x,ax),Math.min(y,ay),Math.max(x,ax),Math.max(y,ay)];paint()};
+$('maskCanvas').onpointerup=()=>{if(!maskInfo)return;maskInfo.anchor=null;const r=maskInfo.rect,valid=r&&r[2]-r[0]>3&&r[3]-r[1]>3;$('repairBtn').disabled=!valid;$('rectLabel').textContent=valid?'区域已选中，确认后开始修复':'区域太小，请重新框选'};
+function closeMask(){$('maskModal').classList.add('hidden');maskInfo=null;maskRequest++}
+async function repair(){if(!maskInfo?.rect||isLocked())return;const m=maskInfo,g=draft.find(g=>g.id===m.group);if(state.project.id!==m.project||g?.['frame_'+m.side]!==m.frame){closeMask();toast('截图已经变化，请重新框选');return}const c=$('maskCanvas'),rect=m.rect.map((v,i)=>Math.round(v*(i%2?m.height/c.height:m.width/c.width))),all=$('applyAll').checked;const started=await call(()=>api.start_repair(m.group,m.side,rect,all,m.frame,m.project));if(started){originalView={a:false,b:false};closeMask()}await poll()}
+async function environment(){$('envRows').textContent='正在检查本机程序…';$('envModal').classList.remove('hidden');const result=await call(()=>api.check_environment());if(result)$('envRows').innerHTML=Object.entries(result).map(([name,item])=>`<div class="env-row"><strong>${esc(name)}</strong><span>${item.ok===true?'✓ ':item.ok===false?'需处理 · ':''}${esc(item.message)}${item.path?`<br>${esc(item.path)}`:''}</span></div>`).join('')}
+window.addEventListener('pywebviewready',()=>{api=window.pywebview.api;poll();setInterval(poll,1000)});
+</script>
+</body>
+</html>
