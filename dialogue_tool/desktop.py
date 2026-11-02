@@ -11,6 +11,7 @@ from .media import probe
 from .projects import original_frame, project_asset
 from .providers import run
 from .service import Service
+from .generation import CanvasWorkflow
 from .settings import ROOT, settings
 from .project_run import analysis_running
 
@@ -18,6 +19,7 @@ from .project_run import analysis_running
 class DesktopAPI:
     def __init__(self, service: Service):
         self._service = service
+        self._generation = CanvasWorkflow(service)
         self._window = None
         self.lock = threading.RLock()
         items = service.projects.list()
@@ -164,6 +166,41 @@ class DesktopAPI:
             identifier, destination = self.current, Path(chosen[0])
         return self._start(lambda: '图片已导出到：' + str(self._service.export(identifier, destination)))
 
+    def generation_models(self):
+        return self._generation.models()
+
+    def generation_configure(self, model, duration, prompt, project_id):
+        with self.lock:
+            self._idle()
+            if not project_id or self.current != project_id:
+                raise ValueError("项目已经切换")
+            result = self._generation.configure(project_id, model, duration, prompt)
+            self.version += 1
+            return {"model": result["generation"]["model"], "duration": result["generation"]["duration"]}
+
+    def generation_prepare(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.prepare(identifier) and "生成草稿已准备好，尚未扣费"))
+
+    def generation_quote(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.quote(identifier) and "即梦积分报价已返回，请核对后手动批准"))
+
+    def generation_run(self, approved_ceiling, project_id):
+        with self.lock:
+            self._idle()
+            if self.current != project_id:
+                raise ValueError("项目已切换")
+        return self._start(lambda: (self._generation.run_approved(project_id, approved_ceiling) and "即梦任务已提交，使用原任务ID查询"))
+
+    def generation_refresh(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.refresh(identifier) and "任务状态已更新"))
+
+    def generation_download(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.download(identifier) and "已下载并核验可用视频"))
+
     def check_environment(self):
         result = {}
         for name in ('codex', 'ffmpeg', 'ffprobe'):
@@ -183,7 +220,8 @@ class DesktopAPI:
         except Exception as exc:
             result['codex_login'] = {'ok': False, 'message': str(exc)}
         result['local_model'] = {'ok': Path(self._service.config['model']).is_file(), 'message': '本地 LaMa 模型'}
-        result['generation'] = {'ok': None, 'message': '按要求暂不接入即梦，不进行登录或生成'}
+        canvas = self._service.config.get('dreamina_canvas')
+        result['generation'] = {'ok': bool(canvas), 'message': '已找到 dreamina-canvas，请在本机完成登录' if canvas else '未找到 dreamina-canvas CLI'}
         return result
 
 

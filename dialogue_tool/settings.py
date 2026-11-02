@@ -14,6 +14,7 @@ def settings() -> dict:
     default_codex = str(bundled_codex) if bundled_codex.is_file() else shutil.which('codex')
     return {
         'codex': os.environ.get('DIALOGUE_CODEX_PATH') or overrides.get('codex') or default_codex,
+        'dreamina_canvas': os.environ.get('DIALOGUE_CANVAS_CLI') or overrides.get('dreamina_canvas') or shutil.which('dreamina-canvas'),
         'ffmpeg': overrides.get('ffmpeg') or shutil.which('ffmpeg'),
         'ffprobe': overrides.get('ffprobe') or shutil.which('ffprobe'),
         'model': overrides.get('model') or str(ROOT / '.tools' / 'models' / 'big-lama.pt'),
