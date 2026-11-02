@@ -2,6 +2,7 @@
 
 import base64
 import io
+import os
 import threading
 from pathlib import Path
 
@@ -219,9 +220,25 @@ class DesktopAPI:
             result['codex_login'] = {'ok': auth.returncode == 0, 'message': (auth.stdout + auth.stderr).strip()}
         except Exception as exc:
             result['codex_login'] = {'ok': False, 'message': str(exc)}
-        result['local_model'] = {'ok': Path(self._service.config['model']).is_file(), 'message': '本地 LaMa 模型'}
+        import importlib.util
+        cpu_model = Path(self._service.config['model']).is_file()
+        cpu_torch = importlib.util.find_spec('torch') is not None
+        result['local_model'] = {'ok': cpu_model and cpu_torch,
+                                 'message': 'LaMa CPU 修复可用' if cpu_model and cpu_torch else
+                                            'CPU 修复为可选功能：尚缺本地模型或 PyTorch；拆组和即梦不受影响'}
         canvas = self._service.config.get('dreamina_canvas')
-        result['generation'] = {'ok': bool(canvas), 'message': '已找到 dreamina-canvas，请在本机完成登录' if canvas else '未找到 dreamina-canvas CLI'}
+        if canvas:
+            try:
+                detected = run([canvas, 'version'], 15)
+                ok_version = detected.returncode == 0
+                ok_account = ok_version and run([canvas, '--format', 'json', 'auth', 'account'], 20).returncode == 0
+                result['generation'] = {'ok': ok_account,
+                    'message': '即梦 CLI 已安装且账户已授权' if ok_account else
+                               '即梦 CLI 存在，但请在 PowerShell 验证版本和登录状态'}
+            except Exception:
+                result['generation'] = {'ok': False, 'message': '即梦 CLI 启动失败，请核对安装路径和登录'}
+        else:
+            result['generation'] = {'ok': False, 'message': '未找到即梦 CLI，Windows 可原生安装'}
         return result
 
 
@@ -231,4 +248,8 @@ def launch():
     html = (Path(__file__).parent / 'ui' / 'index.html').read_text(encoding='utf-8')
     api._window = webview.create_window('对话视频工具', html=html,
                                        js_api=api, width=1280, height=850, min_size=(1000, 700))
-    webview.start(debug=False)
+    # Require the modern WebView2 engine on Windows 11; IE11 cannot run our UI.
+    if os.name == 'nt':
+        webview.start(gui='edgechromium', debug=False)
+    else:
+        webview.start(debug=False)

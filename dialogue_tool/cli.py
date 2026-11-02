@@ -7,7 +7,7 @@ from .settings import settings
 
 
 def main():
-    parser = argparse.ArgumentParser(description='对话视频工具 Mac 验证版（即梦暂不接入）')
+    parser = argparse.ArgumentParser(description='对话视频工作台（Windows 11 / macOS，CPU 优先）')
     subs = parser.add_subparsers(dest='command', required=True)
     subs.add_parser('desktop', help='启动桌面窗口')
     subs.add_parser('doctor', help='仅检查环境，不提交生成任务')

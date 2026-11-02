@@ -11,7 +11,7 @@ def settings() -> dict:
     local = ROOT / 'settings.local.json'
     overrides = json.loads(local.read_text(encoding='utf-8')) if local.exists() else {}
     bundled_codex = Path('/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex')
-    default_codex = str(bundled_codex) if bundled_codex.is_file() else shutil.which('codex')
+    default_codex = str(bundled_codex) if os.name != 'nt' and bundled_codex.is_file() else shutil.which('codex')
     return {
         'codex': os.environ.get('DIALOGUE_CODEX_PATH') or overrides.get('codex') or default_codex,
         'dreamina_canvas': os.environ.get('DIALOGUE_CANVAS_CLI') or overrides.get('dreamina_canvas') or shutil.which('dreamina-canvas'),
