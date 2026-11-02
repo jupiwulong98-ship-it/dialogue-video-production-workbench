@@ -1,12 +1,14 @@
 # 对话视频生产工作台
 
-Mac 本地验证版。GitHub 仓库标识为 `dialogue-video-production-workbench`，Python 包及现有启动入口名称保持兼容。
+Windows 11 x64（无独立显卡）/ macOS 开发验证版。GitHub 仓库标识为 `dialogue-video-production-workbench`，Python 包及启动入口名称保持兼容。
 
-当前已实现本地视频导入、逐帧镜头扫描、按连续对话片段归并、从每段挑选最佳 A/B 正反打、人工换图与提示词保存、矩形区域 LaMa 修复及分类图片导出。按最新要求，**已加入即梦画布 CLI 视频草稿、报价、提交、查询和下载入口；需要本机安装、登录并确认积分才会实际生成。暂不做视频拼接**。Windows 适配尚未开始。
+当前已实现本地视频导入、逐帧镜头扫描、按连续对话片段归并、从每段挑选最佳 A/B 正反打、人工换图与提示词保存、矩形区域 LaMa 修复及分类图片导出。按最新要求，**已加入即梦画布 CLI 视频草稿、报价、提交、查询和下载入口；需要本机安装、登录并确认积分才会实际生成。暂不做视频拼接**。已增加 Windows 11 原生安装/启动脚本与 Windows CI 冒烟测试，**还需客户电脑真机验证**；主流程不需要独立显卡，LaMa CPU 修复为可选项。
 
 ## 打开与使用
 
-双击本目录的 **对话视频工具.app**，或 **启动Mac工具.command**。当前 Mac 应用为开发验证入口，依赖本项目目录及 `.venv`、`.tools`，请保留它们的相对位置；它不是可直接发给客户的独立安装包。
+**客户 Windows 11：** 在仓库目录运行 `setup_windows.ps1` 完成 Python 环境安装，按文档安装 FFmpeg / Codex / 即梦 CLI、登录账户，再双击 `start_windows.bat` 打开软件。详见 [Windows 11 无独显安装与验收](docs/Windows11无独显安装与验收.md)。
+
+**Mac 开发机：** 双击 **对话视频工具.app** 或 **启动Mac工具.command**。目前两端都属于开发启动版，**不是免依赖 EXE 安装包**。
 
 1. 点击“导入视频”，选择本机文件。原视频保留原位，不覆盖。
 2. 可填写分析起止秒数；结束时间留空表示分析整部视频。
@@ -46,11 +48,11 @@ Mac 本地验证版。GitHub 仓库标识为 `dialogue-video-production-workbenc
 
 ## 运行环境
 
-- 当前实测 macOS 26.2 / Apple Silicon ARM64，独立 Python 3.11 虚拟环境。
+- 已有 macOS 实测记录；Windows 11 x64 无独显适配有安装/启动脚本及 CI 冒烟测试，但需在客户真实 Win11 电脑验收。独立 Python 3.11 虚拟环境。
 - Codex 使用本机应用内有效 CLI 路径，不修改全局 MkBoard 桥接，也不复制登录凭据。
 - FFmpeg、FFprobe 用于读取视频及提取完整尺寸截图。
 - LaMa TorchScript 模型使用 CPU，局部修复效果需要看图检查；没有自动接入在线图片服务。
-- 即梦生成由单独安装、已登录的 `dreamina-canvas` CLI 执行；首次在客户电脑运行需登录、确认会员/积分权益，批量运行在界面显示额度上限供人工批准。
+- 即梦生成由单独安装、已登录的 `dreamina-canvas` CLI 执行，官方支持 Windows PowerShell 安装；首次在客户电脑运行需登录、确认会员/积分权益，批量运行在界面显示额度上限供人工批准。
 - 如需改路径，在项目根目录建立 `settings.local.json`，可配置 `codex`、`ffmpeg`、`ffprobe`、`model`、`data`、`dreamina_canvas`。不要在该文件写入账号令牌。
 
 运行环境检查：
