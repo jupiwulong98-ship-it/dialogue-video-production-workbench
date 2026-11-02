@@ -154,11 +154,13 @@ def request_images(codex: str, images: list[Path], output: Path, instruction: st
 
 def analyze_images(codex: str, images: list[Path], output: Path, context: str = '') -> dict:
     instruction = (
-        '找出同一连续场景中两个不同真人的正反打对话候选，每人选一张清晰图。'
+        '第一步先识别每段独立的连续人物对话，第二步为每段找两个不同真人的正反打候选锚点。'
         '不是同一人的两个角度，也不是两张多人合照。需要相反视角和交流关系的画面证据，不能因为衣服相似就配对。'
         '不要将机器人、屏幕影像、道具或旁观者当对话人物。缺少另一人独立视角不要假装成功，可标needs_review=true。'
-        '同段同两人仅一组；不同地点、不同时间段重新出现应另建组。短暂插入其他镜头不必切碎仍在继续的对话。'
+        '同一连续对话无论切回多少次都只提议一组；不同地点、不同时间段的独立交流重新建组。'
+        '短暂插入其他镜头不必切碎仍在继续的对话。同场不同人物组合的独立对话应分别提议。'
         '选脸部清晰、无遮挡、眼睛睁开、表情自然的中近景，避开闭眼、背影、过渡、严重运动模糊及大字遮脸。'
         'span_start/span_end填写本段对话在当前附件中的首末索引，包含所选两张；person_a/person_b写简短可辨识外貌和服装。'
-        'summary与reason用中文，区分明确配对和不确定候选；没有合适配组可返回空pairs。上下文：' + context)
+        'summary与reason用中文；缺少两人独立正反打的片段只能在summary说明，不能凑图。'
+        '没有合适配组返回空pairs，后续不会要求人工补选。上下文：' + context)
     return validate_analysis(request_images(codex, images, output, instruction, ANALYSIS_SCHEMA), len(images))

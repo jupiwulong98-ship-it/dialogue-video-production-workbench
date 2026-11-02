@@ -102,18 +102,41 @@ def consolidate_dialogues(proposals, frames, compare):
     return sorted(result, key=lambda p: p['scene_start_seconds'])
 
 
-def refinement_frames(pair, frames):
+def refinement_frames(pair, frames, limit=24):
+    """从整个连续对话片段中挑候选，而非仅从第一次 A/B 所在镜头挑。
+
+    前两张是人物身份锚点；其余优先覆盖不同镜头与不同时刻，再由模型检查人脸。
+    清晰度数值只用于候选排序，不能代替人脸可见性判断。
+    """
     known = {f['id']: f for f in frames}
     anchors = [known[pair[k]] for k in ('frame_a', 'frame_b')]
-    result = list(anchors)
+    chosen = list(anchors)
     used = {f['id'] for f in anchors}
-    for anchor in anchors:
-        candidates = [f for f in frames if f['shot_id'] == anchor['shot_id'] and f['id'] not in used]
-        candidates.sort(key=lambda f: f.get('sharpness', 0), reverse=True)
-        for frame in candidates[:5]:
-            result.append(frame)
+    start, end = pair_span(pair, frames)
+    within = [f for f in frames if start - .5 <= f['seconds'] <= end + .5]
+    by_shot = {}
+    for frame in within:
+        by_shot.setdefault(frame['shot_id'], []).append(frame)
+    ranked = lambda f: (f.get('sharpness', 0), -abs(f.get('mean_brightness', 128) - 128))
+    representatives = sorted(
+        (max(items, key=ranked) for items in by_shot.values()),
+        key=lambda f: f['seconds'])
+    slots = max(0, limit - len(chosen))
+    # 先均匀覆盖整个片段的不同镜头，避免只选到开头或一个机位。
+    if len(representatives) > slots and slots > 0:
+        indices = sorted({round(i * (len(representatives) - 1) / max(1, slots - 1))
+                          for i in range(slots)})
+        representatives = [representatives[i] for i in indices]
+    for frame in representatives:
+        if frame['id'] not in used and len(chosen) < limit:
+            chosen.append(frame)
             used.add(frame['id'])
-    return result[:12]
+    # 有剩余名额时，增加同段的高质量备选（可能是同人物另一张更清楚的脸）。
+    for frame in sorted(within, key=ranked, reverse=True):
+        if frame['id'] not in used and len(chosen) < limit:
+            chosen.append(frame)
+            used.add(frame['id'])
+    return chosen
 
 
 def verified_group(proposal, verification, choices):
@@ -132,7 +155,10 @@ def verified_group(proposal, verification, choices):
     known = {f['id']: f for f in choices}
     a, b = known[group['frame_a']], known[group['frame_b']]
     # 两张同镜头图可能是同一个人的连续动作，无法代表已确认的正反打。
-    if a['shot_id'] == b['shot_id'] or abs(a['seconds'] - b['seconds']) > 90:
+    if a['shot_id'] == b['shot_id']:
+        uncertain = True
+    start, end = pair_span(proposal, choices)
+    if not (start - .5 <= a['seconds'] <= end + .5 and start - .5 <= b['seconds'] <= end + .5):
         uncertain = True
     group.update(needs_review=uncertain, selected=not uncertain,
                  validation_state='uncertain' if uncertain else 'ready')

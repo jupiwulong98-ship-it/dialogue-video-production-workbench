@@ -28,7 +28,7 @@ def test_refinement_keeps_anchor_identities_and_bounds_image_input():
     frames = [{'id': i, 'shot_id': i // 20, 'seconds': i / 2, 'sharpness': i} for i in range(60)]
     chosen = da.refinement_frames({'frame_a': 1, 'frame_b': 21}, frames)
     assert [f['id'] for f in chosen[:2]] == [1, 21]
-    assert len(chosen) <= 12
+    assert len(chosen) <= 24
     assert {f['shot_id'] for f in chosen} == {0, 1}
 
 
