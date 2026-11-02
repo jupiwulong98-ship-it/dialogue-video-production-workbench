@@ -22,7 +22,7 @@
   <div class="project-switch"><label class="overline" for="projectPicker">本地项目</label><select id="projectPicker" class="project-picker" onchange="selectProject(this.value)"><option>正在载入…</option></select></div>
   <div class="side-heading"><span>对话图片组 <b class="count" id="groupCount">0</b></span><button id="addGroupBtn" class="icon ghost" onclick="addGroup()" aria-label="手动添加图片组" title="手动添加图片组">＋</button></div>
   <div class="group-filters"><button id="readyFilter" class="active" onclick="setGroupFilter('ready')">对话结果 <b id="readyCount">0</b></button><button id="reviewFilter" onclick="setGroupFilter('review')">待确认 <b id="reviewCount">0</b></button></div><div class="group-list" id="groups"></div>
-  <div class="side-bottom"><div class="summary"><span>选中导出 <b id="selectedCount">0</b> 组</span><span>已修复 <b id="repairCount">0</b> 张</span></div><button class="ghost" onclick="environment()">⚙ &nbsp;运行环境<span style="float:right;color:#626d80">本机</span></button></div>
+  <div class="side-bottom"><div class="summary"><span>选中导出 <b id="selectedCount">0</b> 组</span><span>已修复 <b id="repairCount">0</b> 张</span><span title="已发现但未通过正反打二次核验的片段，不代表全部漏检对话">自动排除 <b id="excludedCount">0</b> 段</span></div><button class="ghost" onclick="environment()">⚙ &nbsp;运行环境<span style="float:right;color:#626d80">本机</span></button></div>
  </aside>
  <main class="main">
   <header class="topbar"><div class="breadcrumb"><span class="muted">工作区</span><span class="muted">/</span><span id="sourceName" class="project-title">对话素材整理</span></div><div class="toolbar"><button class="ghost small" onclick="chooseVideo()">＋ 导入视频</button><span class="toolbar-sep"></span><span class="dirty-label" id="dirtyLabel"></span><button class="small" id="saveBtn" onclick="saveDraft()">保存</button><button class="primary small" id="exportBtn" onclick="exportGroups()">导出图片组 ↗</button></div></header>
@@ -108,6 +108,7 @@ function updateCounts(){
  $('readyCount').textContent=draft.filter(g=>!g.needs_review).length;$('reviewCount').textContent=draft.filter(g=>g.needs_review).length;
  $('selectedCount').textContent=draft.filter(g=>g.selected).length;
  $('repairCount').textContent=draft.reduce((n,g)=>n+Number(!!g.repaired_a)+Number(!!g.repaired_b),0);
+ $('excludedCount').textContent=state?.project?.analysis_report?.excluded_segments??0;
  $('exportBtn').disabled=!!state?.busy||!draft.some(g=>g.selected);
 }
 function renderGroups(){
