@@ -1,0 +1,26 @@
+[
+  {
+    "source": "PROJECT_ROOT/validation/source/His-Girl-Friday.mp4",
+    "source_start": 100,
+    "source_end": 132,
+    "fixture_start": 0,
+    "fixture_end": 32.0,
+    "purpose": "接待处正反打"
+  },
+  {
+    "source": "PROJECT_ROOT/validation/source/His-Girl-Friday.mp4",
+    "source_start": 1850,
+    "source_end": 1895,
+    "fixture_start": 32.0,
+    "fixture_end": 77.0,
+    "purpose": "不同地点的电话画面，防误配"
+  },
+  {
+    "source": "PROJECT_ROOT/validation/source/His-Girl-Friday.mp4",
+    "source_start": 3537,
+    "source_end": 3611,
+    "fixture_start": 77.0,
+    "fixture_end": 151.0,
+    "purpose": "记者室人物反打"
+  }
+]

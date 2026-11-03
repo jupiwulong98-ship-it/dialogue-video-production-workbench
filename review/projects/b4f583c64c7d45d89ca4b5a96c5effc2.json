@@ -1,0 +1,347 @@
+{
+  "id": "b4f583c64c7d45d89ca4b5a96c5effc2",
+  "source": "PROJECT_ROOT/validation/source/tears_of_steel_720p.mov",
+  "name": "Tears of Steel · 真人对话测试",
+  "source_sha256": "efa9062d9cdb7a338e40ad530dfdf234806743f29ae6a1a136b97ece4e588e8f",
+  "source_size": 372178639,
+  "source_mtime_ns": 1793526402241059396,
+  "directory": "PROJECT_ROOT/workspaces/b4f583c64c7d45d89ca4b5a96c5effc2",
+  "phase": "exported",
+  "scan": {
+    "source": "PROJECT_ROOT/validation/source/tears_of_steel_720p.mov",
+    "source_duration": 734.166667,
+    "start": 308.0,
+    "end": 328.0,
+    "fps": 24.0,
+    "read_mode": "all_frames",
+    "decoded_frames": 480,
+    "shots": [
+      {
+        "id": 0,
+        "start": 308.0,
+        "end": 310.583333,
+        "frame_ids": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": 1,
+        "start": 310.583333,
+        "end": 312.375,
+        "frame_ids": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "id": 2,
+        "start": 312.375,
+        "end": 315.375,
+        "frame_ids": [
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "id": 3,
+        "start": 315.375,
+        "end": 319.958333,
+        "frame_ids": [
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "id": 4,
+        "start": 319.958333,
+        "end": 322.208333,
+        "frame_ids": [
+          14,
+          15,
+          16
+        ]
+      },
+      {
+        "id": 5,
+        "start": 322.208333,
+        "end": 324.083333,
+        "frame_ids": [
+          17,
+          18,
+          19
+        ]
+      },
+      {
+        "id": 6,
+        "start": 324.083333,
+        "end": 328.0,
+        "frame_ids": [
+          20,
+          21,
+          22
+        ]
+      }
+    ],
+    "frames": [
+      {
+        "id": 0,
+        "shot_id": 0,
+        "seconds": 308.16666666666663,
+        "frame_number": 7396,
+        "file": "frame-00000.jpg",
+        "sharpness": 178.01,
+        "mean_brightness": 143.71
+      },
+      {
+        "id": 1,
+        "shot_id": 0,
+        "seconds": 309.29166666666663,
+        "frame_number": 7423,
+        "file": "frame-00001.jpg",
+        "sharpness": 93.36,
+        "mean_brightness": 122.04
+      },
+      {
+        "id": 2,
+        "shot_id": 0,
+        "seconds": 310.41666666666663,
+        "frame_number": 7450,
+        "file": "frame-00002.jpg",
+        "sharpness": 42.19,
+        "mean_brightness": 103.07
+      },
+      {
+        "id": 3,
+        "shot_id": 1,
+        "seconds": 310.75,
+        "frame_number": 7458,
+        "file": "frame-00003.jpg",
+        "sharpness": 66.77,
+        "mean_brightness": 98.63
+      },
+      {
+        "id": 4,
+        "shot_id": 1,
+        "seconds": 311.4583333333333,
+        "frame_number": 7475,
+        "file": "frame-00004.jpg",
+        "sharpness": 49.2,
+        "mean_brightness": 99.33
+      },
+      {
+        "id": 5,
+        "shot_id": 1,
+        "seconds": 312.2083333333333,
+        "frame_number": 7493,
+        "file": "frame-00005.jpg",
+        "sharpness": 58.92,
+        "mean_brightness": 99.03
+      },
+      {
+        "id": 6,
+        "shot_id": 2,
+        "seconds": 312.54166666666663,
+        "frame_number": 7501,
+        "file": "frame-00006.jpg",
+        "sharpness": 27.53,
+        "mean_brightness": 109.14
+      },
+      {
+        "id": 7,
+        "shot_id": 2,
+        "seconds": 313.875,
+        "frame_number": 7533,
+        "file": "frame-00007.jpg",
+        "sharpness": 99.01,
+        "mean_brightness": 97.69
+      },
+      {
+        "id": 8,
+        "shot_id": 2,
+        "seconds": 315.2083333333333,
+        "frame_number": 7565,
+        "file": "frame-00008.jpg",
+        "sharpness": 125.31,
+        "mean_brightness": 98.83
+      },
+      {
+        "id": 9,
+        "shot_id": 3,
+        "seconds": 315.54166666666663,
+        "frame_number": 7573,
+        "file": "frame-00009.jpg",
+        "sharpness": 35.21,
+        "mean_brightness": 109.82
+      },
+      {
+        "id": 10,
+        "shot_id": 3,
+        "seconds": 317.375,
+        "frame_number": 7617,
+        "file": "frame-00010.jpg",
+        "sharpness": 34.08,
+        "mean_brightness": 109.01
+      },
+      {
+        "id": 11,
+        "shot_id": 3,
+        "seconds": 317.66666666666663,
+        "frame_number": 7624,
+        "file": "frame-00011.jpg",
+        "sharpness": 26.38,
+        "mean_brightness": 109.27
+      },
+      {
+        "id": 12,
+        "shot_id": 3,
+        "seconds": 319.375,
+        "frame_number": 7665,
+        "file": "frame-00012.jpg",
+        "sharpness": 22.8,
+        "mean_brightness": 109.44
+      },
+      {
+        "id": 13,
+        "shot_id": 3,
+        "seconds": 319.79166666666663,
+        "frame_number": 7675,
+        "file": "frame-00013.jpg",
+        "sharpness": 29.43,
+        "mean_brightness": 109.62
+      },
+      {
+        "id": 14,
+        "shot_id": 4,
+        "seconds": 320.125,
+        "frame_number": 7683,
+        "file": "frame-00014.jpg",
+        "sharpness": 33.79,
+        "mean_brightness": 91.42
+      },
+      {
+        "id": 15,
+        "shot_id": 4,
+        "seconds": 321.0833333333333,
+        "frame_number": 7706,
+        "file": "frame-00015.jpg",
+        "sharpness": 29.66,
+        "mean_brightness": 91.18
+      },
+      {
+        "id": 16,
+        "shot_id": 4,
+        "seconds": 322.04166666666663,
+        "frame_number": 7729,
+        "file": "frame-00016.jpg",
+        "sharpness": 34.24,
+        "mean_brightness": 91.1
+      },
+      {
+        "id": 17,
+        "shot_id": 5,
+        "seconds": 322.375,
+        "frame_number": 7737,
+        "file": "frame-00017.jpg",
+        "sharpness": 85.84,
+        "mean_brightness": 97.9
+      },
+      {
+        "id": 18,
+        "shot_id": 5,
+        "seconds": 323.125,
+        "frame_number": 7755,
+        "file": "frame-00018.jpg",
+        "sharpness": 115.15,
+        "mean_brightness": 97.78
+      },
+      {
+        "id": 19,
+        "shot_id": 5,
+        "seconds": 323.91666666666663,
+        "frame_number": 7774,
+        "file": "frame-00019.jpg",
+        "sharpness": 119.4,
+        "mean_brightness": 97.5
+      },
+      {
+        "id": 20,
+        "shot_id": 6,
+        "seconds": 324.25,
+        "frame_number": 7782,
+        "file": "frame-00020.jpg",
+        "sharpness": 33.37,
+        "mean_brightness": 108.7
+      },
+      {
+        "id": 21,
+        "shot_id": 6,
+        "seconds": 326.04166666666663,
+        "frame_number": 7825,
+        "file": "frame-00021.jpg",
+        "sharpness": 22.32,
+        "mean_brightness": 109.49
+      },
+      {
+        "id": 22,
+        "shot_id": 6,
+        "seconds": 327.8333333333333,
+        "frame_number": 7868,
+        "file": "frame-00022.jpg",
+        "sharpness": 35.95,
+        "mean_brightness": 108.64
+      }
+    ],
+    "elapsed_seconds": 0.606
+  },
+  "scan_directory": "PROJECT_ROOT/workspaces/b4f583c64c7d45d89ca4b5a96c5effc2/scan-a936355a",
+  "groups": [
+    {
+      "id": "53675b9de6d549b1b32dbd73d73dbe39",
+      "frame_a": 4,
+      "frame_b": 15,
+      "prompt": "测试提示词：保持两张参考图中的人物服装与场景，生成两人面对面交谈的连续镜头。",
+      "reason": "男子与女子在同一运河街边连续场景中交替出现，背景建筑、树木及光线一致；男子穿深蓝外套，女子扎马尾、穿黑色外套，视线方向相对。两张均为清晰正面近景，男子正在说话，女子呈倾听反应。",
+      "needs_review": true,
+      "selected": false,
+      "scene_start_seconds": 311.4583333333333,
+      "scene_end_seconds": 321.0833333333333,
+      "verification_reason": "截图已手动替换，请重新确认人物与对话关系。",
+      "validation_state": "uncertain",
+      "repaired_a": null,
+      "mask_a": null,
+      "repaired_b": null,
+      "mask_b": null
+    }
+  ],
+  "error": null,
+  "exports": [
+    "PROJECT_ROOT/validation/exports/对话截图_20261101_181459_5ad618"
+  ],
+  "created_at": "2026-11-01T18:03:21",
+  "attribution": "Tears of Steel (2012), Blender Foundation / Blender Institute. CC BY 3.0. Source: https://mango.blender.org/about/ ; original video: https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov . 本测试仅分析及提取图片；演示水印为自行叠加的 DEMO LOGO。",
+  "analysis_cache": {
+    "fa91ebad347e6327f37f0b496e0754bdc6ab64ce0b45eb434e4515c6efc149ae": {
+      "summary": "龙神，找到一组同一连续场景中两名真人的正反打对话候选。",
+      "pairs": [
+        {
+          "frame_a": 13,
+          "frame_b": 15,
+          "reason": "男子与女子在同一运河街边连续场景中交替出现，背景建筑、树木及光线一致；男子穿深蓝外套，女子扎马尾、穿黑色外套，视线方向相对。两张均为清晰正面近景，男子正在说话，女子呈倾听反应。",
+          "needs_review": false
+        }
+      ]
+    },
+    "63526dffdba773dcb5bebc46831feaee762fc2f2c40b32b9937119843e5fe500": {
+      "summary": "龙神，三张图片均为同一名男子，未找到两名不同真人的正反打对话候选。",
+      "pairs": []
+    }
+  },
+  "analysis_elapsed_seconds": 23.709
+}

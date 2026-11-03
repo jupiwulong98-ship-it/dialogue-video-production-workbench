@@ -1,0 +1,23 @@
+[
+  {
+    "file": "tears_of_steel_720p.mov",
+    "bytes": 372178639,
+    "sha256": "efa9062d9cdb7a338e40ad530dfdf234806743f29ae6a1a136b97ece4e588e8f",
+    "source_url": "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov",
+    "included_in_archive": false
+  },
+  {
+    "file": "His-Girl-Friday.mp4",
+    "bytes": 575274912,
+    "sha256": "1da7a6a00285d8a0c0942acda655c5b1287a200106759b6ae786479dcd8b57f3",
+    "source_url": "https://archive.org/download/his_girl_friday/his_girl_friday.mp4",
+    "included_in_archive": false
+  },
+  {
+    "file": "HGF-multiple-dialogues-test.mp4",
+    "bytes": 18171264,
+    "sha256": "fa872c984be4f6d7e45b24e1455d1c68b295708de412860aa2e5cc72bd7893a1",
+    "source_url": null,
+    "included_in_archive": true
+  }
+]

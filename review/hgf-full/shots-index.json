@@ -1,0 +1,1136 @@
+[
+  {
+    "shot": 1,
+    "start": 0.0,
+    "end": 0.967633,
+    "candidate_count": 3
+  },
+  {
+    "shot": 2,
+    "start": 0.967633,
+    "end": 1.334667,
+    "candidate_count": 3
+  },
+  {
+    "shot": 3,
+    "start": 1.334667,
+    "end": 78.311567,
+    "candidate_count": 41
+  },
+  {
+    "shot": 4,
+    "start": 78.311567,
+    "end": 99.232467,
+    "candidate_count": 13
+  },
+  {
+    "shot": 5,
+    "start": 99.232467,
+    "end": 111.3112,
+    "candidate_count": 8
+  },
+  {
+    "shot": 6,
+    "start": 111.3112,
+    "end": 117.951167,
+    "candidate_count": 6
+  },
+  {
+    "shot": 7,
+    "start": 117.951167,
+    "end": 126.292833,
+    "candidate_count": 7
+  },
+  {
+    "shot": 8,
+    "start": 126.292833,
+    "end": 131.564767,
+    "candidate_count": 5
+  },
+  {
+    "shot": 9,
+    "start": 131.564767,
+    "end": 134.467667,
+    "candidate_count": 3
+  },
+  {
+    "shot": 10,
+    "start": 134.467667,
+    "end": 139.105633,
+    "candidate_count": 5
+  },
+  {
+    "shot": 11,
+    "start": 139.105633,
+    "end": 142.175367,
+    "candidate_count": 3
+  },
+  {
+    "shot": 12,
+    "start": 142.175367,
+    "end": 153.2531,
+    "candidate_count": 8
+  },
+  {
+    "shot": 13,
+    "start": 153.2531,
+    "end": 156.9568,
+    "candidate_count": 3
+  },
+  {
+    "shot": 14,
+    "start": 156.9568,
+    "end": 171.638133,
+    "candidate_count": 10
+  },
+  {
+    "shot": 15,
+    "start": 171.638133,
+    "end": 276.1759,
+    "candidate_count": 55
+  },
+  {
+    "shot": 16,
+    "start": 276.1759,
+    "end": 495.561733,
+    "candidate_count": 112
+  },
+  {
+    "shot": 17,
+    "start": 495.561733,
+    "end": 498.531367,
+    "candidate_count": 3
+  },
+  {
+    "shot": 18,
+    "start": 498.531367,
+    "end": 501.7012,
+    "candidate_count": 3
+  },
+  {
+    "shot": 19,
+    "start": 501.7012,
+    "end": 504.270433,
+    "candidate_count": 3
+  },
+  {
+    "shot": 20,
+    "start": 504.270433,
+    "end": 543.910033,
+    "candidate_count": 22
+  },
+  {
+    "shot": 21,
+    "start": 543.910033,
+    "end": 580.313067,
+    "candidate_count": 21
+  },
+  {
+    "shot": 22,
+    "start": 580.313067,
+    "end": 592.024767,
+    "candidate_count": 8
+  },
+  {
+    "shot": 23,
+    "start": 592.024767,
+    "end": 737.670267,
+    "candidate_count": 75
+  },
+  {
+    "shot": 24,
+    "start": 737.670267,
+    "end": 746.3456,
+    "candidate_count": 7
+  },
+  {
+    "shot": 25,
+    "start": 746.3456,
+    "end": 765.097667,
+    "candidate_count": 12
+  },
+  {
+    "shot": 26,
+    "start": 765.097667,
+    "end": 773.439333,
+    "candidate_count": 7
+  },
+  {
+    "shot": 27,
+    "start": 773.439333,
+    "end": 776.442333,
+    "candidate_count": 3
+  },
+  {
+    "shot": 28,
+    "start": 776.442333,
+    "end": 791.1904,
+    "candidate_count": 10
+  },
+  {
+    "shot": 29,
+    "start": 791.1904,
+    "end": 796.762633,
+    "candidate_count": 5
+  },
+  {
+    "shot": 30,
+    "start": 796.762633,
+    "end": 798.8981,
+    "candidate_count": 3
+  },
+  {
+    "shot": 31,
+    "start": 798.8981,
+    "end": 836.769267,
+    "candidate_count": 21
+  },
+  {
+    "shot": 32,
+    "start": 836.769267,
+    "end": 839.672167,
+    "candidate_count": 3
+  },
+  {
+    "shot": 33,
+    "start": 839.672167,
+    "end": 845.911733,
+    "candidate_count": 6
+  },
+  {
+    "shot": 34,
+    "start": 845.911733,
+    "end": 852.1513,
+    "candidate_count": 6
+  },
+  {
+    "shot": 35,
+    "start": 852.1513,
+    "end": 858.524333,
+    "candidate_count": 6
+  },
+  {
+    "shot": 36,
+    "start": 858.524333,
+    "end": 866.599067,
+    "candidate_count": 6
+  },
+  {
+    "shot": 37,
+    "start": 866.599067,
+    "end": 990.656333,
+    "candidate_count": 64
+  },
+  {
+    "shot": 38,
+    "start": 990.656333,
+    "end": 997.129467,
+    "candidate_count": 6
+  },
+  {
+    "shot": 39,
+    "start": 997.129467,
+    "end": 1006.572233,
+    "candidate_count": 7
+  },
+  {
+    "shot": 40,
+    "start": 1006.572233,
+    "end": 1097.663233,
+    "candidate_count": 48
+  },
+  {
+    "shot": 41,
+    "start": 1097.663233,
+    "end": 1105.9048,
+    "candidate_count": 7
+  },
+  {
+    "shot": 42,
+    "start": 1105.9048,
+    "end": 1153.9528,
+    "candidate_count": 26
+  },
+  {
+    "shot": 43,
+    "start": 1153.9528,
+    "end": 1167.933433,
+    "candidate_count": 9
+  },
+  {
+    "shot": 44,
+    "start": 1167.933433,
+    "end": 1194.626767,
+    "candidate_count": 16
+  },
+  {
+    "shot": 45,
+    "start": 1194.626767,
+    "end": 1205.037167,
+    "candidate_count": 8
+  },
+  {
+    "shot": 46,
+    "start": 1205.037167,
+    "end": 1206.171633,
+    "candidate_count": 3
+  },
+  {
+    "shot": 47,
+    "start": 1206.171633,
+    "end": 1220.085533,
+    "candidate_count": 9
+  },
+  {
+    "shot": 48,
+    "start": 1220.085533,
+    "end": 1228.360467,
+    "candidate_count": 7
+  },
+  {
+    "shot": 49,
+    "start": 1228.360467,
+    "end": 1234.9337,
+    "candidate_count": 6
+  },
+  {
+    "shot": 50,
+    "start": 1234.9337,
+    "end": 1267.699767,
+    "candidate_count": 19
+  },
+  {
+    "shot": 51,
+    "start": 1267.699767,
+    "end": 1283.815867,
+    "candidate_count": 10
+  },
+  {
+    "shot": 52,
+    "start": 1283.815867,
+    "end": 1316.0147,
+    "candidate_count": 19
+  },
+  {
+    "shot": 53,
+    "start": 1316.0147,
+    "end": 1326.792133,
+    "candidate_count": 8
+  },
+  {
+    "shot": 54,
+    "start": 1326.792133,
+    "end": 1337.869867,
+    "candidate_count": 8
+  },
+  {
+    "shot": 55,
+    "start": 1337.869867,
+    "end": 1347.879867,
+    "candidate_count": 7
+  },
+  {
+    "shot": 56,
+    "start": 1347.879867,
+    "end": 1451.716933,
+    "candidate_count": 54
+  },
+  {
+    "shot": 57,
+    "start": 1451.716933,
+    "end": 1469.8684,
+    "candidate_count": 12
+  },
+  {
+    "shot": 58,
+    "start": 1469.8684,
+    "end": 1486.7853,
+    "candidate_count": 11
+  },
+  {
+    "shot": 59,
+    "start": 1486.7853,
+    "end": 1488.420267,
+    "candidate_count": 3
+  },
+  {
+    "shot": 60,
+    "start": 1488.420267,
+    "end": 1499.7983,
+    "candidate_count": 8
+  },
+  {
+    "shot": 61,
+    "start": 1499.7983,
+    "end": 1517.249067,
+    "candidate_count": 11
+  },
+  {
+    "shot": 62,
+    "start": 1517.249067,
+    "end": 1520.3188,
+    "candidate_count": 3
+  },
+  {
+    "shot": 63,
+    "start": 1520.3188,
+    "end": 1526.992133,
+    "candidate_count": 6
+  },
+  {
+    "shot": 64,
+    "start": 1526.992133,
+    "end": 1583.7822,
+    "candidate_count": 31
+  },
+  {
+    "shot": 65,
+    "start": 1583.7822,
+    "end": 1590.622367,
+    "candidate_count": 6
+  },
+  {
+    "shot": 66,
+    "start": 1590.622367,
+    "end": 1595.460533,
+    "candidate_count": 5
+  },
+  {
+    "shot": 67,
+    "start": 1595.460533,
+    "end": 1609.1075,
+    "candidate_count": 9
+  },
+  {
+    "shot": 68,
+    "start": 1609.1075,
+    "end": 1629.361067,
+    "candidate_count": 13
+  },
+  {
+    "shot": 69,
+    "start": 1629.361067,
+    "end": 1743.174767,
+    "candidate_count": 59
+  },
+  {
+    "shot": 70,
+    "start": 1743.174767,
+    "end": 1747.479067,
+    "candidate_count": 5
+  },
+  {
+    "shot": 71,
+    "start": 1747.479067,
+    "end": 1754.2525,
+    "candidate_count": 6
+  },
+  {
+    "shot": 72,
+    "start": 1754.2525,
+    "end": 1758.823733,
+    "candidate_count": 5
+  },
+  {
+    "shot": 73,
+    "start": 1758.823733,
+    "end": 1763.394967,
+    "candidate_count": 5
+  },
+  {
+    "shot": 74,
+    "start": 1763.394967,
+    "end": 1768.533433,
+    "candidate_count": 5
+  },
+  {
+    "shot": 75,
+    "start": 1768.533433,
+    "end": 1771.402967,
+    "candidate_count": 3
+  },
+  {
+    "shot": 76,
+    "start": 1771.402967,
+    "end": 1780.245133,
+    "candidate_count": 7
+  },
+  {
+    "shot": 77,
+    "start": 1780.245133,
+    "end": 1781.246133,
+    "candidate_count": 3
+  },
+  {
+    "shot": 78,
+    "start": 1781.246133,
+    "end": 1783.414967,
+    "candidate_count": 3
+  },
+  {
+    "shot": 79,
+    "start": 1783.414967,
+    "end": 1789.6879,
+    "candidate_count": 6
+  },
+  {
+    "shot": 80,
+    "start": 1789.6879,
+    "end": 1796.928467,
+    "candidate_count": 6
+  },
+  {
+    "shot": 81,
+    "start": 1796.928467,
+    "end": 1828.6268,
+    "candidate_count": 18
+  },
+  {
+    "shot": 82,
+    "start": 1828.6268,
+    "end": 1846.177667,
+    "candidate_count": 11
+  },
+  {
+    "shot": 83,
+    "start": 1846.177667,
+    "end": 1849.3475,
+    "candidate_count": 3
+  },
+  {
+    "shot": 84,
+    "start": 1849.3475,
+    "end": 1854.118933,
+    "candidate_count": 5
+  },
+  {
+    "shot": 85,
+    "start": 1854.118933,
+    "end": 1855.4536,
+    "candidate_count": 3
+  },
+  {
+    "shot": 86,
+    "start": 1855.4536,
+    "end": 1883.147933,
+    "candidate_count": 16
+  },
+  {
+    "shot": 87,
+    "start": 1883.147933,
+    "end": 1892.824267,
+    "candidate_count": 7
+  },
+  {
+    "shot": 88,
+    "start": 1892.824267,
+    "end": 1927.926,
+    "candidate_count": 20
+  },
+  {
+    "shot": 89,
+    "start": 1927.926,
+    "end": 1943.7418,
+    "candidate_count": 10
+  },
+  {
+    "shot": 90,
+    "start": 1943.7418,
+    "end": 1956.387767,
+    "candidate_count": 9
+  },
+  {
+    "shot": 91,
+    "start": 1956.387767,
+    "end": 2134.098633,
+    "candidate_count": 91
+  },
+  {
+    "shot": 92,
+    "start": 2134.098633,
+    "end": 2138.202733,
+    "candidate_count": 4
+  },
+  {
+    "shot": 93,
+    "start": 2138.202733,
+    "end": 2141.7396,
+    "candidate_count": 3
+  },
+  {
+    "shot": 94,
+    "start": 2141.7396,
+    "end": 2147.879067,
+    "candidate_count": 5
+  },
+  {
+    "shot": 95,
+    "start": 2147.879067,
+    "end": 2224.288733,
+    "candidate_count": 41
+  },
+  {
+    "shot": 96,
+    "start": 2224.288733,
+    "end": 2245.076167,
+    "candidate_count": 13
+  },
+  {
+    "shot": 97,
+    "start": 2245.076167,
+    "end": 2263.8616,
+    "candidate_count": 12
+  },
+  {
+    "shot": 98,
+    "start": 2263.8616,
+    "end": 2267.398467,
+    "candidate_count": 3
+  },
+  {
+    "shot": 99,
+    "start": 2267.398467,
+    "end": 2578.409167,
+    "candidate_count": 158
+  },
+  {
+    "shot": 100,
+    "start": 2578.409167,
+    "end": 2656.220233,
+    "candidate_count": 41
+  },
+  {
+    "shot": 101,
+    "start": 2656.220233,
+    "end": 2688.619267,
+    "candidate_count": 19
+  },
+  {
+    "shot": 102,
+    "start": 2688.619267,
+    "end": 2718.449067,
+    "candidate_count": 17
+  },
+  {
+    "shot": 103,
+    "start": 2718.449067,
+    "end": 2742.706633,
+    "candidate_count": 15
+  },
+  {
+    "shot": 104,
+    "start": 2742.706633,
+    "end": 2748.112033,
+    "candidate_count": 5
+  },
+  {
+    "shot": 105,
+    "start": 2748.112033,
+    "end": 2767.631533,
+    "candidate_count": 12
+  },
+  {
+    "shot": 106,
+    "start": 2767.631533,
+    "end": 2768.999567,
+    "candidate_count": 3
+  },
+  {
+    "shot": 107,
+    "start": 2768.999567,
+    "end": 2769.399967,
+    "candidate_count": 3
+  },
+  {
+    "shot": 108,
+    "start": 2769.399967,
+    "end": 2769.800367,
+    "candidate_count": 3
+  },
+  {
+    "shot": 109,
+    "start": 2769.800367,
+    "end": 2771.001567,
+    "candidate_count": 3
+  },
+  {
+    "shot": 110,
+    "start": 2771.001567,
+    "end": 2771.5688,
+    "candidate_count": 3
+  },
+  {
+    "shot": 111,
+    "start": 2771.5688,
+    "end": 2797.4947,
+    "candidate_count": 15
+  },
+  {
+    "shot": 112,
+    "start": 2797.4947,
+    "end": 2803.5007,
+    "candidate_count": 5
+  },
+  {
+    "shot": 113,
+    "start": 2803.5007,
+    "end": 2814.278133,
+    "candidate_count": 8
+  },
+  {
+    "shot": 114,
+    "start": 2814.278133,
+    "end": 2907.271033,
+    "candidate_count": 49
+  },
+  {
+    "shot": 115,
+    "start": 2907.271033,
+    "end": 2942.873267,
+    "candidate_count": 20
+  },
+  {
+    "shot": 116,
+    "start": 2942.873267,
+    "end": 2944.3414,
+    "candidate_count": 3
+  },
+  {
+    "shot": 117,
+    "start": 2944.3414,
+    "end": 2951.4485,
+    "candidate_count": 6
+  },
+  {
+    "shot": 118,
+    "start": 2951.4485,
+    "end": 2959.3564,
+    "candidate_count": 6
+  },
+  {
+    "shot": 119,
+    "start": 2959.3564,
+    "end": 2962.592967,
+    "candidate_count": 3
+  },
+  {
+    "shot": 120,
+    "start": 2962.592967,
+    "end": 2965.2623,
+    "candidate_count": 3
+  },
+  {
+    "shot": 121,
+    "start": 2965.2623,
+    "end": 2993.857533,
+    "candidate_count": 17
+  },
+  {
+    "shot": 122,
+    "start": 2993.857533,
+    "end": 2998.028367,
+    "candidate_count": 5
+  },
+  {
+    "shot": 123,
+    "start": 2998.028367,
+    "end": 3019.082733,
+    "candidate_count": 13
+  },
+  {
+    "shot": 124,
+    "start": 3019.082733,
+    "end": 3024.087733,
+    "candidate_count": 5
+  },
+  {
+    "shot": 125,
+    "start": 3024.087733,
+    "end": 3028.291933,
+    "candidate_count": 5
+  },
+  {
+    "shot": 126,
+    "start": 3028.291933,
+    "end": 3066.8638,
+    "candidate_count": 22
+  },
+  {
+    "shot": 127,
+    "start": 3066.8638,
+    "end": 3113.844067,
+    "candidate_count": 26
+  },
+  {
+    "shot": 128,
+    "start": 3113.844067,
+    "end": 3139.669867,
+    "candidate_count": 15
+  },
+  {
+    "shot": 129,
+    "start": 3139.669867,
+    "end": 3237.667767,
+    "candidate_count": 51
+  },
+  {
+    "shot": 130,
+    "start": 3237.667767,
+    "end": 3240.170267,
+    "candidate_count": 3
+  },
+  {
+    "shot": 131,
+    "start": 3240.170267,
+    "end": 3310.940967,
+    "candidate_count": 38
+  },
+  {
+    "shot": 132,
+    "start": 3310.940967,
+    "end": 3378.508467,
+    "candidate_count": 36
+  },
+  {
+    "shot": 133,
+    "start": 3378.508467,
+    "end": 3431.961867,
+    "candidate_count": 29
+  },
+  {
+    "shot": 134,
+    "start": 3431.961867,
+    "end": 3485.448633,
+    "candidate_count": 29
+  },
+  {
+    "shot": 135,
+    "start": 3485.448633,
+    "end": 3490.119967,
+    "candidate_count": 5
+  },
+  {
+    "shot": 136,
+    "start": 3490.119967,
+    "end": 3502.7993,
+    "candidate_count": 9
+  },
+  {
+    "shot": 137,
+    "start": 3502.7993,
+    "end": 3507.971133,
+    "candidate_count": 5
+  },
+  {
+    "shot": 138,
+    "start": 3507.971133,
+    "end": 3536.566367,
+    "candidate_count": 17
+  },
+  {
+    "shot": 139,
+    "start": 3536.566367,
+    "end": 3553.316433,
+    "candidate_count": 11
+  },
+  {
+    "shot": 140,
+    "start": 3553.316433,
+    "end": 3555.285067,
+    "candidate_count": 3
+  },
+  {
+    "shot": 141,
+    "start": 3555.285067,
+    "end": 3582.2787,
+    "candidate_count": 16
+  },
+  {
+    "shot": 142,
+    "start": 3582.2787,
+    "end": 3610.8072,
+    "candidate_count": 17
+  },
+  {
+    "shot": 143,
+    "start": 3610.8072,
+    "end": 3633.696733,
+    "candidate_count": 14
+  },
+  {
+    "shot": 144,
+    "start": 3633.696733,
+    "end": 3732.195133,
+    "candidate_count": 52
+  },
+  {
+    "shot": 145,
+    "start": 3732.195133,
+    "end": 3733.863467,
+    "candidate_count": 3
+  },
+  {
+    "shot": 146,
+    "start": 3733.863467,
+    "end": 3761.891467,
+    "candidate_count": 15
+  },
+  {
+    "shot": 147,
+    "start": 3761.891467,
+    "end": 3871.734533,
+    "candidate_count": 57
+  },
+  {
+    "shot": 148,
+    "start": 3871.734533,
+    "end": 3900.730167,
+    "candidate_count": 17
+  },
+  {
+    "shot": 149,
+    "start": 3900.730167,
+    "end": 3914.277033,
+    "candidate_count": 9
+  },
+  {
+    "shot": 150,
+    "start": 3914.277033,
+    "end": 3950.913633,
+    "candidate_count": 21
+  },
+  {
+    "shot": 151,
+    "start": 3950.913633,
+    "end": 3952.8489,
+    "candidate_count": 3
+  },
+  {
+    "shot": 152,
+    "start": 3952.8489,
+    "end": 4147.5434,
+    "candidate_count": 100
+  },
+  {
+    "shot": 153,
+    "start": 4147.5434,
+    "end": 4212.675133,
+    "candidate_count": 35
+  },
+  {
+    "shot": 154,
+    "start": 4212.675133,
+    "end": 4216.579033,
+    "candidate_count": 3
+  },
+  {
+    "shot": 155,
+    "start": 4216.579033,
+    "end": 4228.0238,
+    "candidate_count": 8
+  },
+  {
+    "shot": 156,
+    "start": 4228.0238,
+    "end": 4231.9277,
+    "candidate_count": 3
+  },
+  {
+    "shot": 157,
+    "start": 4231.9277,
+    "end": 4239.201633,
+    "candidate_count": 6
+  },
+  {
+    "shot": 158,
+    "start": 4239.201633,
+    "end": 4244.707133,
+    "candidate_count": 5
+  },
+  {
+    "shot": 159,
+    "start": 4244.707133,
+    "end": 4258.887967,
+    "candidate_count": 10
+  },
+  {
+    "shot": 160,
+    "start": 4258.887967,
+    "end": 4260.6564,
+    "candidate_count": 3
+  },
+  {
+    "shot": 161,
+    "start": 4260.6564,
+    "end": 4268.931333,
+    "candidate_count": 7
+  },
+  {
+    "shot": 162,
+    "start": 4268.931333,
+    "end": 4279.3751,
+    "candidate_count": 8
+  },
+  {
+    "shot": 163,
+    "start": 4279.3751,
+    "end": 4291.153533,
+    "candidate_count": 8
+  },
+  {
+    "shot": 164,
+    "start": 4291.153533,
+    "end": 4304.3,
+    "candidate_count": 9
+  },
+  {
+    "shot": 165,
+    "start": 4304.3,
+    "end": 4309.2049,
+    "candidate_count": 5
+  },
+  {
+    "shot": 166,
+    "start": 4309.2049,
+    "end": 4311.040067,
+    "candidate_count": 3
+  },
+  {
+    "shot": 167,
+    "start": 4311.040067,
+    "end": 4335.2309,
+    "candidate_count": 15
+  },
+  {
+    "shot": 168,
+    "start": 4335.2309,
+    "end": 4572.801567,
+    "candidate_count": 121
+  },
+  {
+    "shot": 169,
+    "start": 4572.801567,
+    "end": 4584.813567,
+    "candidate_count": 7
+  },
+  {
+    "shot": 170,
+    "start": 4584.813567,
+    "end": 4653.115133,
+    "candidate_count": 37
+  },
+  {
+    "shot": 171,
+    "start": 4653.115133,
+    "end": 4741.6369,
+    "candidate_count": 47
+  },
+  {
+    "shot": 172,
+    "start": 4741.6369,
+    "end": 4745.874467,
+    "candidate_count": 5
+  },
+  {
+    "shot": 173,
+    "start": 4745.874467,
+    "end": 4762.1574,
+    "candidate_count": 11
+  },
+  {
+    "shot": 174,
+    "start": 4762.1574,
+    "end": 4768.997567,
+    "candidate_count": 6
+  },
+  {
+    "shot": 175,
+    "start": 4768.997567,
+    "end": 4770.8661,
+    "candidate_count": 3
+  },
+  {
+    "shot": 176,
+    "start": 4770.8661,
+    "end": 4772.768,
+    "candidate_count": 3
+  },
+  {
+    "shot": 177,
+    "start": 4772.768,
+    "end": 4887.1823,
+    "candidate_count": 60
+  },
+  {
+    "shot": 178,
+    "start": 4887.1823,
+    "end": 4891.219667,
+    "candidate_count": 4
+  },
+  {
+    "shot": 179,
+    "start": 4891.219667,
+    "end": 4896.758533,
+    "candidate_count": 5
+  },
+  {
+    "shot": 180,
+    "start": 4896.758533,
+    "end": 4922.5176,
+    "candidate_count": 15
+  },
+  {
+    "shot": 181,
+    "start": 4922.5176,
+    "end": 4951.5466,
+    "candidate_count": 17
+  },
+  {
+    "shot": 182,
+    "start": 4951.5466,
+    "end": 4959.688067,
+    "candidate_count": 6
+  },
+  {
+    "shot": 183,
+    "start": 4959.688067,
+    "end": 4960.522233,
+    "candidate_count": 3
+  },
+  {
+    "shot": 184,
+    "start": 4960.522233,
+    "end": 4961.623333,
+    "candidate_count": 3
+  },
+  {
+    "shot": 185,
+    "start": 4961.623333,
+    "end": 4962.924633,
+    "candidate_count": 3
+  },
+  {
+    "shot": 186,
+    "start": 4962.924633,
+    "end": 4969.3644,
+    "candidate_count": 6
+  },
+  {
+    "shot": 187,
+    "start": 4969.3644,
+    "end": 4971.4665,
+    "candidate_count": 3
+  },
+  {
+    "shot": 188,
+    "start": 4971.4665,
+    "end": 4979.7748,
+    "candidate_count": 7
+  },
+  {
+    "shot": 189,
+    "start": 4979.7748,
+    "end": 5504.565733,
+    "candidate_count": 265
+  }
+]

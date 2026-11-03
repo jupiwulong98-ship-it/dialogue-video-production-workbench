@@ -9,6 +9,7 @@ validation/
 build/
 dist/
 .mac-build/
+.review-build/
 *.app/
 .DS_Store
 *.py[cod]

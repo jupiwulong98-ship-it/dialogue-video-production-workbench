@@ -1,0 +1,13 @@
+{
+  "project_id": "8b6004189dae4539b23a283649487d37",
+  "source": "PROJECT_ROOT/validation/source/His-Girl-Friday.mp4",
+  "source_sha256": "1da7a6a00285d8a0c0942acda655c5b1287a200106759b6ae786479dcd8b57f3",
+  "start": 0.0,
+  "end": 5504.565733,
+  "shots": 189,
+  "candidates": 3194,
+  "batch_count": 160,
+  "status": "stopped_by_user",
+  "completed_batches": 29,
+  "purpose": "Browse all existing 189 shots inside the desktop tool; no new analysis running"
+}

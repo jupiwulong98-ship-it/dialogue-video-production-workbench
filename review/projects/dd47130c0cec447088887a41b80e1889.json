@@ -1,0 +1,1765 @@
+{
+  "id": "dd47130c0cec447088887a41b80e1889",
+  "source": "PROJECT_ROOT/validation/source/HGF-multiple-dialogues-test.mp4",
+  "name": "多场景对话截图测试 · His Girl Friday",
+  "source_sha256": "fa872c984be4f6d7e45b24e1455d1c68b295708de412860aa2e5cc72bd7893a1",
+  "source_size": 18171264,
+  "source_mtime_ns": 1793598475536353498,
+  "directory": "PROJECT_ROOT/workspaces/dd47130c0cec447088887a41b80e1889",
+  "phase": "review",
+  "scan": {
+    "source": "PROJECT_ROOT/validation/source/HGF-multiple-dialogues-test.mp4",
+    "source_duration": 151.021333,
+    "start": 0.0,
+    "end": 151.021333,
+    "fps": 30.0,
+    "read_mode": "all_frames",
+    "decoded_frames": 4530,
+    "shots": [
+      {
+        "id": 0,
+        "start": 0.0,
+        "end": 11.3,
+        "frame_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "id": 1,
+        "start": 11.3,
+        "end": 17.966667,
+        "frame_ids": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "id": 2,
+        "start": 17.966667,
+        "end": 26.3,
+        "frame_ids": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "id": 3,
+        "start": 26.3,
+        "end": 31.566667,
+        "frame_ids": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ]
+      },
+      {
+        "id": 4,
+        "start": 31.566667,
+        "end": 36.133333,
+        "frame_ids": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ]
+      },
+      {
+        "id": 5,
+        "start": 36.133333,
+        "end": 37.466667,
+        "frame_ids": [
+          31,
+          32,
+          33
+        ]
+      },
+      {
+        "id": 6,
+        "start": 37.466667,
+        "end": 65.133333,
+        "frame_ids": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ]
+      },
+      {
+        "id": 7,
+        "start": 65.133333,
+        "end": 74.833333,
+        "frame_ids": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      {
+        "id": 8,
+        "start": 74.833333,
+        "end": 77.0,
+        "frame_ids": [
+          57,
+          58,
+          59
+        ]
+      },
+      {
+        "id": 9,
+        "start": 77.0,
+        "end": 93.3,
+        "frame_ids": [
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70
+        ]
+      },
+      {
+        "id": 10,
+        "start": 93.3,
+        "end": 95.3,
+        "frame_ids": [
+          71,
+          72,
+          73
+        ]
+      },
+      {
+        "id": 11,
+        "start": 95.3,
+        "end": 122.266667,
+        "frame_ids": [
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ]
+      },
+      {
+        "id": 12,
+        "start": 122.266667,
+        "end": 150.8,
+        "frame_ids": [
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106
+        ]
+      },
+      {
+        "id": 13,
+        "start": 150.8,
+        "end": 151.0,
+        "frame_ids": [
+          107,
+          108,
+          109
+        ]
+      }
+    ],
+    "frames": [
+      {
+        "id": 0,
+        "shot_id": 0,
+        "seconds": 0.13333333333333333,
+        "frame_number": 4,
+        "file": "frame-00000.jpg",
+        "sharpness": 177.37,
+        "mean_brightness": 91.62
+      },
+      {
+        "id": 1,
+        "shot_id": 0,
+        "seconds": 2.0,
+        "frame_number": 60,
+        "file": "frame-00001.jpg",
+        "sharpness": 193.95,
+        "mean_brightness": 86.84
+      },
+      {
+        "id": 2,
+        "shot_id": 0,
+        "seconds": 4.0,
+        "frame_number": 120,
+        "file": "frame-00002.jpg",
+        "sharpness": 232.36,
+        "mean_brightness": 93.03
+      },
+      {
+        "id": 3,
+        "shot_id": 0,
+        "seconds": 5.666666666666667,
+        "frame_number": 170,
+        "file": "frame-00003.jpg",
+        "sharpness": 251.18,
+        "mean_brightness": 93.13
+      },
+      {
+        "id": 4,
+        "shot_id": 0,
+        "seconds": 6.0,
+        "frame_number": 180,
+        "file": "frame-00004.jpg",
+        "sharpness": 244.2,
+        "mean_brightness": 92.23
+      },
+      {
+        "id": 5,
+        "shot_id": 0,
+        "seconds": 8.0,
+        "frame_number": 240,
+        "file": "frame-00005.jpg",
+        "sharpness": 179.99,
+        "mean_brightness": 88.48
+      },
+      {
+        "id": 6,
+        "shot_id": 0,
+        "seconds": 10.0,
+        "frame_number": 300,
+        "file": "frame-00006.jpg",
+        "sharpness": 168.41,
+        "mean_brightness": 86.28
+      },
+      {
+        "id": 7,
+        "shot_id": 0,
+        "seconds": 11.133333333333333,
+        "frame_number": 334,
+        "file": "frame-00007.jpg",
+        "sharpness": 187.72,
+        "mean_brightness": 84.9
+      },
+      {
+        "id": 8,
+        "shot_id": 1,
+        "seconds": 11.466666666666667,
+        "frame_number": 344,
+        "file": "frame-00008.jpg",
+        "sharpness": 44.37,
+        "mean_brightness": 80.41
+      },
+      {
+        "id": 9,
+        "shot_id": 1,
+        "seconds": 13.299999999999999,
+        "frame_number": 399,
+        "file": "frame-00009.jpg",
+        "sharpness": 41.0,
+        "mean_brightness": 78.85
+      },
+      {
+        "id": 10,
+        "shot_id": 1,
+        "seconds": 14.633333333333333,
+        "frame_number": 439,
+        "file": "frame-00010.jpg",
+        "sharpness": 42.35,
+        "mean_brightness": 80.01
+      },
+      {
+        "id": 11,
+        "shot_id": 1,
+        "seconds": 15.299999999999999,
+        "frame_number": 459,
+        "file": "frame-00011.jpg",
+        "sharpness": 42.48,
+        "mean_brightness": 82.04
+      },
+      {
+        "id": 12,
+        "shot_id": 1,
+        "seconds": 17.3,
+        "frame_number": 519,
+        "file": "frame-00012.jpg",
+        "sharpness": 40.55,
+        "mean_brightness": 79.73
+      },
+      {
+        "id": 13,
+        "shot_id": 1,
+        "seconds": 17.833333333333332,
+        "frame_number": 535,
+        "file": "frame-00013.jpg",
+        "sharpness": 40.29,
+        "mean_brightness": 79.45
+      },
+      {
+        "id": 14,
+        "shot_id": 2,
+        "seconds": 18.133333333333333,
+        "frame_number": 544,
+        "file": "frame-00014.jpg",
+        "sharpness": 30.76,
+        "mean_brightness": 99.69
+      },
+      {
+        "id": 15,
+        "shot_id": 2,
+        "seconds": 19.966666666666665,
+        "frame_number": 599,
+        "file": "frame-00015.jpg",
+        "sharpness": 29.97,
+        "mean_brightness": 99.77
+      },
+      {
+        "id": 16,
+        "shot_id": 2,
+        "seconds": 21.966666666666665,
+        "frame_number": 659,
+        "file": "frame-00016.jpg",
+        "sharpness": 30.83,
+        "mean_brightness": 101.27
+      },
+      {
+        "id": 17,
+        "shot_id": 2,
+        "seconds": 22.133333333333333,
+        "frame_number": 664,
+        "file": "frame-00017.jpg",
+        "sharpness": 35.2,
+        "mean_brightness": 100.96
+      },
+      {
+        "id": 18,
+        "shot_id": 2,
+        "seconds": 23.966666666666665,
+        "frame_number": 719,
+        "file": "frame-00018.jpg",
+        "sharpness": 28.98,
+        "mean_brightness": 98.71
+      },
+      {
+        "id": 19,
+        "shot_id": 2,
+        "seconds": 25.966666666666665,
+        "frame_number": 779,
+        "file": "frame-00019.jpg",
+        "sharpness": 27.15,
+        "mean_brightness": 97.65
+      },
+      {
+        "id": 20,
+        "shot_id": 2,
+        "seconds": 26.166666666666668,
+        "frame_number": 785,
+        "file": "frame-00020.jpg",
+        "sharpness": 28.11,
+        "mean_brightness": 98.28
+      },
+      {
+        "id": 21,
+        "shot_id": 3,
+        "seconds": 26.466666666666665,
+        "frame_number": 794,
+        "file": "frame-00021.jpg",
+        "sharpness": 48.17,
+        "mean_brightness": 87.58
+      },
+      {
+        "id": 22,
+        "shot_id": 3,
+        "seconds": 28.3,
+        "frame_number": 849,
+        "file": "frame-00022.jpg",
+        "sharpness": 50.54,
+        "mean_brightness": 85.39
+      },
+      {
+        "id": 23,
+        "shot_id": 3,
+        "seconds": 28.933333333333334,
+        "frame_number": 868,
+        "file": "frame-00023.jpg",
+        "sharpness": 45.6,
+        "mean_brightness": 85.94
+      },
+      {
+        "id": 24,
+        "shot_id": 3,
+        "seconds": 30.3,
+        "frame_number": 909,
+        "file": "frame-00024.jpg",
+        "sharpness": 46.91,
+        "mean_brightness": 89.69
+      },
+      {
+        "id": 25,
+        "shot_id": 3,
+        "seconds": 31.433333333333334,
+        "frame_number": 943,
+        "file": "frame-00025.jpg",
+        "sharpness": 53.26,
+        "mean_brightness": 92.71
+      },
+      {
+        "id": 26,
+        "shot_id": 4,
+        "seconds": 31.733333333333334,
+        "frame_number": 952,
+        "file": "frame-00026.jpg",
+        "sharpness": 77.48,
+        "mean_brightness": 84.48
+      },
+      {
+        "id": 27,
+        "shot_id": 4,
+        "seconds": 33.56666666666666,
+        "frame_number": 1007,
+        "file": "frame-00027.jpg",
+        "sharpness": 32.06,
+        "mean_brightness": 79.2
+      },
+      {
+        "id": 28,
+        "shot_id": 4,
+        "seconds": 33.86666666666667,
+        "frame_number": 1016,
+        "file": "frame-00028.jpg",
+        "sharpness": 38.29,
+        "mean_brightness": 79.63
+      },
+      {
+        "id": 29,
+        "shot_id": 4,
+        "seconds": 35.56666666666666,
+        "frame_number": 1067,
+        "file": "frame-00029.jpg",
+        "sharpness": 32.14,
+        "mean_brightness": 79.73
+      },
+      {
+        "id": 30,
+        "shot_id": 4,
+        "seconds": 35.96666666666667,
+        "frame_number": 1079,
+        "file": "frame-00030.jpg",
+        "sharpness": 31.55,
+        "mean_brightness": 79.3
+      },
+      {
+        "id": 31,
+        "shot_id": 5,
+        "seconds": 36.266666666666666,
+        "frame_number": 1088,
+        "file": "frame-00031.jpg",
+        "sharpness": 80.63,
+        "mean_brightness": 94.21
+      },
+      {
+        "id": 32,
+        "shot_id": 5,
+        "seconds": 36.8,
+        "frame_number": 1104,
+        "file": "frame-00032.jpg",
+        "sharpness": 83.33,
+        "mean_brightness": 94.81
+      },
+      {
+        "id": 33,
+        "shot_id": 5,
+        "seconds": 37.333333333333336,
+        "frame_number": 1120,
+        "file": "frame-00033.jpg",
+        "sharpness": 81.99,
+        "mean_brightness": 94.0
+      },
+      {
+        "id": 34,
+        "shot_id": 6,
+        "seconds": 37.63333333333333,
+        "frame_number": 1129,
+        "file": "frame-00034.jpg",
+        "sharpness": 32.49,
+        "mean_brightness": 76.58
+      },
+      {
+        "id": 35,
+        "shot_id": 6,
+        "seconds": 39.46666666666667,
+        "frame_number": 1184,
+        "file": "frame-00035.jpg",
+        "sharpness": 29.48,
+        "mean_brightness": 74.11
+      },
+      {
+        "id": 36,
+        "shot_id": 6,
+        "seconds": 41.46666666666667,
+        "frame_number": 1244,
+        "file": "frame-00036.jpg",
+        "sharpness": 33.17,
+        "mean_brightness": 76.07
+      },
+      {
+        "id": 37,
+        "shot_id": 6,
+        "seconds": 43.46666666666667,
+        "frame_number": 1304,
+        "file": "frame-00037.jpg",
+        "sharpness": 28.46,
+        "mean_brightness": 71.93
+      },
+      {
+        "id": 38,
+        "shot_id": 6,
+        "seconds": 45.46666666666667,
+        "frame_number": 1364,
+        "file": "frame-00038.jpg",
+        "sharpness": 30.64,
+        "mean_brightness": 73.7
+      },
+      {
+        "id": 39,
+        "shot_id": 6,
+        "seconds": 47.46666666666667,
+        "frame_number": 1424,
+        "file": "frame-00039.jpg",
+        "sharpness": 30.73,
+        "mean_brightness": 73.07
+      },
+      {
+        "id": 40,
+        "shot_id": 6,
+        "seconds": 49.46666666666667,
+        "frame_number": 1484,
+        "file": "frame-00040.jpg",
+        "sharpness": 34.36,
+        "mean_brightness": 71.57
+      },
+      {
+        "id": 41,
+        "shot_id": 6,
+        "seconds": 51.3,
+        "frame_number": 1539,
+        "file": "frame-00041.jpg",
+        "sharpness": 38.98,
+        "mean_brightness": 72.36
+      },
+      {
+        "id": 42,
+        "shot_id": 6,
+        "seconds": 51.46666666666667,
+        "frame_number": 1544,
+        "file": "frame-00042.jpg",
+        "sharpness": 37.54,
+        "mean_brightness": 72.97
+      },
+      {
+        "id": 43,
+        "shot_id": 6,
+        "seconds": 53.46666666666667,
+        "frame_number": 1604,
+        "file": "frame-00043.jpg",
+        "sharpness": 35.79,
+        "mean_brightness": 71.55
+      },
+      {
+        "id": 44,
+        "shot_id": 6,
+        "seconds": 55.46666666666667,
+        "frame_number": 1664,
+        "file": "frame-00044.jpg",
+        "sharpness": 88.23,
+        "mean_brightness": 74.41
+      },
+      {
+        "id": 45,
+        "shot_id": 6,
+        "seconds": 57.46666666666667,
+        "frame_number": 1724,
+        "file": "frame-00045.jpg",
+        "sharpness": 90.91,
+        "mean_brightness": 76.86
+      },
+      {
+        "id": 46,
+        "shot_id": 6,
+        "seconds": 59.46666666666667,
+        "frame_number": 1784,
+        "file": "frame-00046.jpg",
+        "sharpness": 95.87,
+        "mean_brightness": 73.64
+      },
+      {
+        "id": 47,
+        "shot_id": 6,
+        "seconds": 61.46666666666667,
+        "frame_number": 1844,
+        "file": "frame-00047.jpg",
+        "sharpness": 81.35,
+        "mean_brightness": 71.33
+      },
+      {
+        "id": 48,
+        "shot_id": 6,
+        "seconds": 63.46666666666667,
+        "frame_number": 1904,
+        "file": "frame-00048.jpg",
+        "sharpness": 84.48,
+        "mean_brightness": 73.84
+      },
+      {
+        "id": 49,
+        "shot_id": 6,
+        "seconds": 64.96666666666667,
+        "frame_number": 1949,
+        "file": "frame-00049.jpg",
+        "sharpness": 95.63,
+        "mean_brightness": 76.6
+      },
+      {
+        "id": 50,
+        "shot_id": 7,
+        "seconds": 65.26666666666667,
+        "frame_number": 1958,
+        "file": "frame-00050.jpg",
+        "sharpness": 93.68,
+        "mean_brightness": 90.21
+      },
+      {
+        "id": 51,
+        "shot_id": 7,
+        "seconds": 67.13333333333333,
+        "frame_number": 2014,
+        "file": "frame-00051.jpg",
+        "sharpness": 81.42,
+        "mean_brightness": 84.22
+      },
+      {
+        "id": 52,
+        "shot_id": 7,
+        "seconds": 69.13333333333333,
+        "frame_number": 2074,
+        "file": "frame-00052.jpg",
+        "sharpness": 77.65,
+        "mean_brightness": 83.94
+      },
+      {
+        "id": 53,
+        "shot_id": 7,
+        "seconds": 69.96666666666667,
+        "frame_number": 2099,
+        "file": "frame-00053.jpg",
+        "sharpness": 87.58,
+        "mean_brightness": 84.8
+      },
+      {
+        "id": 54,
+        "shot_id": 7,
+        "seconds": 71.13333333333333,
+        "frame_number": 2134,
+        "file": "frame-00054.jpg",
+        "sharpness": 90.6,
+        "mean_brightness": 86.56
+      },
+      {
+        "id": 55,
+        "shot_id": 7,
+        "seconds": 73.13333333333333,
+        "frame_number": 2194,
+        "file": "frame-00055.jpg",
+        "sharpness": 97.39,
+        "mean_brightness": 87.66
+      },
+      {
+        "id": 56,
+        "shot_id": 7,
+        "seconds": 74.66666666666667,
+        "frame_number": 2240,
+        "file": "frame-00056.jpg",
+        "sharpness": 88.46,
+        "mean_brightness": 86.77
+      },
+      {
+        "id": 57,
+        "shot_id": 8,
+        "seconds": 74.96666666666667,
+        "frame_number": 2249,
+        "file": "frame-00057.jpg",
+        "sharpness": 144.81,
+        "mean_brightness": 112.61
+      },
+      {
+        "id": 58,
+        "shot_id": 8,
+        "seconds": 75.9,
+        "frame_number": 2277,
+        "file": "frame-00058.jpg",
+        "sharpness": 140.83,
+        "mean_brightness": 113.55
+      },
+      {
+        "id": 59,
+        "shot_id": 8,
+        "seconds": 76.86666666666666,
+        "frame_number": 2306,
+        "file": "frame-00059.jpg",
+        "sharpness": 118.62,
+        "mean_brightness": 113.53
+      },
+      {
+        "id": 60,
+        "shot_id": 9,
+        "seconds": 77.13333333333333,
+        "frame_number": 2314,
+        "file": "frame-00060.jpg",
+        "sharpness": 97.17,
+        "mean_brightness": 64.69
+      },
+      {
+        "id": 61,
+        "shot_id": 9,
+        "seconds": 79.0,
+        "frame_number": 2370,
+        "file": "frame-00061.jpg",
+        "sharpness": 88.48,
+        "mean_brightness": 61.62
+      },
+      {
+        "id": 62,
+        "shot_id": 9,
+        "seconds": 81.0,
+        "frame_number": 2430,
+        "file": "frame-00062.jpg",
+        "sharpness": 82.56,
+        "mean_brightness": 60.66
+      },
+      {
+        "id": 63,
+        "shot_id": 9,
+        "seconds": 83.0,
+        "frame_number": 2490,
+        "file": "frame-00063.jpg",
+        "sharpness": 37.56,
+        "mean_brightness": 57.25
+      },
+      {
+        "id": 64,
+        "shot_id": 9,
+        "seconds": 85.0,
+        "frame_number": 2550,
+        "file": "frame-00064.jpg",
+        "sharpness": 35.72,
+        "mean_brightness": 54.36
+      },
+      {
+        "id": 65,
+        "shot_id": 9,
+        "seconds": 85.13333333333333,
+        "frame_number": 2554,
+        "file": "frame-00065.jpg",
+        "sharpness": 36.61,
+        "mean_brightness": 54.52
+      },
+      {
+        "id": 66,
+        "shot_id": 9,
+        "seconds": 87.0,
+        "frame_number": 2610,
+        "file": "frame-00066.jpg",
+        "sharpness": 109.68,
+        "mean_brightness": 61.81
+      },
+      {
+        "id": 67,
+        "shot_id": 9,
+        "seconds": 89.0,
+        "frame_number": 2670,
+        "file": "frame-00067.jpg",
+        "sharpness": 35.92,
+        "mean_brightness": 54.68
+      },
+      {
+        "id": 68,
+        "shot_id": 9,
+        "seconds": 91.0,
+        "frame_number": 2730,
+        "file": "frame-00068.jpg",
+        "sharpness": 126.99,
+        "mean_brightness": 71.63
+      },
+      {
+        "id": 69,
+        "shot_id": 9,
+        "seconds": 93.0,
+        "frame_number": 2790,
+        "file": "frame-00069.jpg",
+        "sharpness": 35.29,
+        "mean_brightness": 52.73
+      },
+      {
+        "id": 70,
+        "shot_id": 9,
+        "seconds": 93.13333333333333,
+        "frame_number": 2794,
+        "file": "frame-00070.jpg",
+        "sharpness": 38.53,
+        "mean_brightness": 52.23
+      },
+      {
+        "id": 71,
+        "shot_id": 10,
+        "seconds": 93.46666666666667,
+        "frame_number": 2804,
+        "file": "frame-00071.jpg",
+        "sharpness": 25.97,
+        "mean_brightness": 79.12
+      },
+      {
+        "id": 72,
+        "shot_id": 10,
+        "seconds": 94.3,
+        "frame_number": 2829,
+        "file": "frame-00072.jpg",
+        "sharpness": 32.75,
+        "mean_brightness": 81.84
+      },
+      {
+        "id": 73,
+        "shot_id": 10,
+        "seconds": 95.13333333333333,
+        "frame_number": 2854,
+        "file": "frame-00073.jpg",
+        "sharpness": 34.79,
+        "mean_brightness": 84.05
+      },
+      {
+        "id": 74,
+        "shot_id": 11,
+        "seconds": 95.46666666666667,
+        "frame_number": 2864,
+        "file": "frame-00074.jpg",
+        "sharpness": 89.96,
+        "mean_brightness": 59.0
+      },
+      {
+        "id": 75,
+        "shot_id": 11,
+        "seconds": 97.3,
+        "frame_number": 2919,
+        "file": "frame-00075.jpg",
+        "sharpness": 90.13,
+        "mean_brightness": 59.95
+      },
+      {
+        "id": 76,
+        "shot_id": 11,
+        "seconds": 99.3,
+        "frame_number": 2979,
+        "file": "frame-00076.jpg",
+        "sharpness": 75.94,
+        "mean_brightness": 56.4
+      },
+      {
+        "id": 77,
+        "shot_id": 11,
+        "seconds": 101.3,
+        "frame_number": 3039,
+        "file": "frame-00077.jpg",
+        "sharpness": 77.23,
+        "mean_brightness": 56.66
+      },
+      {
+        "id": 78,
+        "shot_id": 11,
+        "seconds": 103.3,
+        "frame_number": 3099,
+        "file": "frame-00078.jpg",
+        "sharpness": 81.24,
+        "mean_brightness": 57.8
+      },
+      {
+        "id": 79,
+        "shot_id": 11,
+        "seconds": 105.3,
+        "frame_number": 3159,
+        "file": "frame-00079.jpg",
+        "sharpness": 79.03,
+        "mean_brightness": 59.7
+      },
+      {
+        "id": 80,
+        "shot_id": 11,
+        "seconds": 107.3,
+        "frame_number": 3219,
+        "file": "frame-00080.jpg",
+        "sharpness": 78.06,
+        "mean_brightness": 57.76
+      },
+      {
+        "id": 81,
+        "shot_id": 11,
+        "seconds": 108.8,
+        "frame_number": 3264,
+        "file": "frame-00081.jpg",
+        "sharpness": 74.83,
+        "mean_brightness": 57.97
+      },
+      {
+        "id": 82,
+        "shot_id": 11,
+        "seconds": 109.3,
+        "frame_number": 3279,
+        "file": "frame-00082.jpg",
+        "sharpness": 72.72,
+        "mean_brightness": 57.37
+      },
+      {
+        "id": 83,
+        "shot_id": 11,
+        "seconds": 111.3,
+        "frame_number": 3339,
+        "file": "frame-00083.jpg",
+        "sharpness": 64.89,
+        "mean_brightness": 55.39
+      },
+      {
+        "id": 84,
+        "shot_id": 11,
+        "seconds": 113.3,
+        "frame_number": 3399,
+        "file": "frame-00084.jpg",
+        "sharpness": 70.21,
+        "mean_brightness": 56.72
+      },
+      {
+        "id": 85,
+        "shot_id": 11,
+        "seconds": 115.3,
+        "frame_number": 3459,
+        "file": "frame-00085.jpg",
+        "sharpness": 73.46,
+        "mean_brightness": 57.34
+      },
+      {
+        "id": 86,
+        "shot_id": 11,
+        "seconds": 117.3,
+        "frame_number": 3519,
+        "file": "frame-00086.jpg",
+        "sharpness": 80.05,
+        "mean_brightness": 59.52
+      },
+      {
+        "id": 87,
+        "shot_id": 11,
+        "seconds": 119.3,
+        "frame_number": 3579,
+        "file": "frame-00087.jpg",
+        "sharpness": 78.98,
+        "mean_brightness": 56.75
+      },
+      {
+        "id": 88,
+        "shot_id": 11,
+        "seconds": 121.3,
+        "frame_number": 3639,
+        "file": "frame-00088.jpg",
+        "sharpness": 74.79,
+        "mean_brightness": 56.81
+      },
+      {
+        "id": 89,
+        "shot_id": 11,
+        "seconds": 122.13333333333333,
+        "frame_number": 3664,
+        "file": "frame-00089.jpg",
+        "sharpness": 71.06,
+        "mean_brightness": 54.98
+      },
+      {
+        "id": 90,
+        "shot_id": 12,
+        "seconds": 122.43333333333334,
+        "frame_number": 3673,
+        "file": "frame-00090.jpg",
+        "sharpness": 81.28,
+        "mean_brightness": 69.91
+      },
+      {
+        "id": 91,
+        "shot_id": 12,
+        "seconds": 124.26666666666667,
+        "frame_number": 3728,
+        "file": "frame-00091.jpg",
+        "sharpness": 82.44,
+        "mean_brightness": 70.37
+      },
+      {
+        "id": 92,
+        "shot_id": 12,
+        "seconds": 126.26666666666667,
+        "frame_number": 3788,
+        "file": "frame-00092.jpg",
+        "sharpness": 82.66,
+        "mean_brightness": 70.26
+      },
+      {
+        "id": 93,
+        "shot_id": 12,
+        "seconds": 128.26666666666665,
+        "frame_number": 3848,
+        "file": "frame-00093.jpg",
+        "sharpness": 84.25,
+        "mean_brightness": 61.93
+      },
+      {
+        "id": 94,
+        "shot_id": 12,
+        "seconds": 130.26666666666665,
+        "frame_number": 3908,
+        "file": "frame-00094.jpg",
+        "sharpness": 79.2,
+        "mean_brightness": 59.82
+      },
+      {
+        "id": 95,
+        "shot_id": 12,
+        "seconds": 132.26666666666665,
+        "frame_number": 3968,
+        "file": "frame-00095.jpg",
+        "sharpness": 83.27,
+        "mean_brightness": 72.23
+      },
+      {
+        "id": 96,
+        "shot_id": 12,
+        "seconds": 134.26666666666665,
+        "frame_number": 4028,
+        "file": "frame-00096.jpg",
+        "sharpness": 85.09,
+        "mean_brightness": 73.84
+      },
+      {
+        "id": 97,
+        "shot_id": 12,
+        "seconds": 136.26666666666665,
+        "frame_number": 4088,
+        "file": "frame-00097.jpg",
+        "sharpness": 75.49,
+        "mean_brightness": 56.19
+      },
+      {
+        "id": 98,
+        "shot_id": 12,
+        "seconds": 136.53333333333333,
+        "frame_number": 4096,
+        "file": "frame-00098.jpg",
+        "sharpness": 77.09,
+        "mean_brightness": 56.22
+      },
+      {
+        "id": 99,
+        "shot_id": 12,
+        "seconds": 138.26666666666665,
+        "frame_number": 4148,
+        "file": "frame-00099.jpg",
+        "sharpness": 73.79,
+        "mean_brightness": 56.98
+      },
+      {
+        "id": 100,
+        "shot_id": 12,
+        "seconds": 140.26666666666665,
+        "frame_number": 4208,
+        "file": "frame-00100.jpg",
+        "sharpness": 76.18,
+        "mean_brightness": 58.53
+      },
+      {
+        "id": 101,
+        "shot_id": 12,
+        "seconds": 142.26666666666665,
+        "frame_number": 4268,
+        "file": "frame-00101.jpg",
+        "sharpness": 107.62,
+        "mean_brightness": 58.57
+      },
+      {
+        "id": 102,
+        "shot_id": 12,
+        "seconds": 144.26666666666665,
+        "frame_number": 4328,
+        "file": "frame-00102.jpg",
+        "sharpness": 104.16,
+        "mean_brightness": 59.59
+      },
+      {
+        "id": 103,
+        "shot_id": 12,
+        "seconds": 146.26666666666665,
+        "frame_number": 4388,
+        "file": "frame-00103.jpg",
+        "sharpness": 109.16,
+        "mean_brightness": 59.83
+      },
+      {
+        "id": 104,
+        "shot_id": 12,
+        "seconds": 148.26666666666665,
+        "frame_number": 4448,
+        "file": "frame-00104.jpg",
+        "sharpness": 111.12,
+        "mean_brightness": 60.53
+      },
+      {
+        "id": 105,
+        "shot_id": 12,
+        "seconds": 150.26666666666665,
+        "frame_number": 4508,
+        "file": "frame-00105.jpg",
+        "sharpness": 94.03,
+        "mean_brightness": 59.22
+      },
+      {
+        "id": 106,
+        "shot_id": 12,
+        "seconds": 150.66666666666666,
+        "frame_number": 4520,
+        "file": "frame-00106.jpg",
+        "sharpness": 104.84,
+        "mean_brightness": 56.52
+      },
+      {
+        "id": 107,
+        "shot_id": 13,
+        "seconds": 150.83333333333334,
+        "frame_number": 4525,
+        "file": "frame-00107.jpg",
+        "sharpness": 102.87,
+        "mean_brightness": 57.91
+      },
+      {
+        "id": 108,
+        "shot_id": 13,
+        "seconds": 150.9,
+        "frame_number": 4527,
+        "file": "frame-00108.jpg",
+        "sharpness": 101.05,
+        "mean_brightness": 58.1
+      },
+      {
+        "id": 109,
+        "shot_id": 13,
+        "seconds": 150.96666666666667,
+        "frame_number": 4529,
+        "file": "frame-00109.jpg",
+        "sharpness": 98.34,
+        "mean_brightness": 58.64
+      }
+    ],
+    "elapsed_seconds": 3.119
+  },
+  "scan_directory": "PROJECT_ROOT/workspaces/dd47130c0cec447088887a41b80e1889/scan-1bd85f39",
+  "groups": [
+    {
+      "id": "ef1ea31db8c24719a414c3fcafa174ad",
+      "frame_a": 8,
+      "frame_b": 16,
+      "prompt": "",
+      "reason": "男子正面中近景中，女子的帽子、后脑及条纹肩部位于右前景；反向镜头清晰展示女子正脸，男子侧脸及浅色风衣肩部位于左前景。两人相向注视，前段双人画面也确认其交流关系，构成明确正反打。所选两张脸部清晰、眼睛睁开。",
+      "needs_review": false,
+      "selected": true,
+      "scene_start_seconds": 0.13333333333333333,
+      "scene_end_seconds": 31.733333333333334,
+      "verification_reason": "男子正面镜头右前景可见女子的条纹帽、卷发和条纹肩部；女子正面镜头左前景可见男子的侧脸及浅色风衣肩部。两人相向注视，前景人物与反向主体对应，交流关系明确。所选主体脸部清晰、眼睛睁开且无遮挡。",
+      "person_a": "短发后梳、穿浅色风衣和花纹领带的男子",
+      "person_b": "戴条纹高顶宽檐帽、穿条纹外套的深色卷发女子",
+      "duplicate_count": 2,
+      "validation_state": "ready",
+      "repaired_a": null,
+      "mask_a": null,
+      "repaired_b": null,
+      "mask_b": null
+    },
+    {
+      "id": "6caa90ea2bc74312b43dd7ef6736f2f1",
+      "frame_a": 28,
+      "frame_b": 31,
+      "prompt": "",
+      "reason": "女子持老式电话讲话，随后切至办公室内男子持电话回应，再切回女子继续讲话，形成通话交叉剪辑。两人各有清晰独立镜头，但身处不同空间，仅凭静帧不能确认电话另一端就是对方，需复核。",
+      "needs_review": false,
+      "selected": true,
+      "scene_start_seconds": 33.56666666666666,
+      "scene_end_seconds": 65.26666666666667,
+      "verification_reason": "女子面向右侧持老式电话讲话，男子在办公室持电话听筒、面向左侧回应，视线方向相反，具备通话剪辑的画面线索。两张均为清晰单人中近景、眼睛睁开且脸部无遮挡；但不同空间的静帧不能独立证实交流关系，不能判为明确成功。",
+      "person_a": "戴宽檐帽、穿深色细条纹西装的短卷发女子",
+      "person_b": "头发后梳、穿深色西装及花纹领带的男子",
+      "duplicate_count": 2,
+      "validation_state": "confirmed",
+      "repaired_a": null,
+      "mask_a": null,
+      "repaired_b": null,
+      "mask_b": null
+    },
+    {
+      "id": "809a63251356481286f972fc22995c27",
+      "frame_a": 59,
+      "frame_b": 63,
+      "prompt": "",
+      "reason": "男子重新拿起电话，随后切至女子在另一处办公桌接听电话的独立镜头；女子已摘帽并换到新位置，另列一段。剪辑提示交流关系，但缺少明确确认，且女子所选画面略有模糊，需复核。",
+      "needs_review": false,
+      "selected": true,
+      "scene_start_seconds": 76.86666666666666,
+      "scene_end_seconds": 83.0,
+      "verification_reason": "男子与女子分别在办公桌旁持电话听筒，均为脸部清晰、睁眼且无遮挡的独立画面。镜头衔接提示电话交流，但没有直接相向视线或其他足以确认双方互通电话的画面证据，因此属于不确定候选。",
+      "person_a": "短发后梳、穿深色西装和花纹领带的男子",
+      "person_b": "深色卷发、穿深色细条纹西装和浅色内搭的女子",
+      "duplicate_count": 1,
+      "validation_state": "confirmed",
+      "repaired_a": null,
+      "mask_a": null,
+      "repaired_b": null,
+      "mask_b": null
+    },
+    {
+      "id": "3323726c1a1848be9bc459ad6afb4f82",
+      "frame_a": 74,
+      "frame_b": 91,
+      "prompt": "",
+      "reason": "女子正面看向画面左侧男子，反向镜头中留胡须的男子面向画面右侧女子；末尾镜头进一步呈现女子背侧与男子正面的相对站位。同一桌面、电话和吊灯支持空间连续性，两人交替张口及相向视线提供交流证据。所选帧主体脸部清楚、眼睛睁开，前景人物仅作为反打关系参照。",
+      "needs_review": false,
+      "selected": true,
+      "scene_start_seconds": 87.0,
+      "scene_end_seconds": 150.96666666666667,
+      "verification_reason": "女子穿深色条纹西装、浅色高领内搭，正面望向画面左侧；留胡须、穿浅色衬衫的男子反向望向画面右侧。其余附件呈现两人隔桌相向的站位，同一吊灯、电话和窗户支持场景连续性。所选女子为独立清晰画面，男子脸部清晰、睁眼，身份与两张锚点一致。",
+      "person_a": "卷发女子，深色条纹西装配浅色高领内搭",
+      "person_b": "短发留胡须男子，浅色双胸袋衬衫",
+      "duplicate_count": 3,
+      "validation_state": "ready",
+      "repaired_a": null,
+      "mask_a": null,
+      "repaired_b": null,
+      "mask_b": null
+    }
+  ],
+  "error": null,
+  "exports": [],
+  "created_at": "2026-11-02T13:48:54",
+  "attribution": "His Girl Friday (1940). Source: https://archive.org/details/his_girl_friday . Local test excerpt montage: 100–132s,1850–1895s,3537–3611s. See fixture-manifest.json. Not a full-film semantic test.",
+  "run_status": {
+    "progress": 1,
+    "message": "拆解完成：2 组对话结果，2 组待确认"
+  },
+  "error_code": null,
+  "analysis_used_keys": [
+    "4aebf1aaf02f87212f8fba3c882d3f228f58502fa76418fb7aaf73fdbd675af2",
+    "3f391e2c7cd4b0653cd4a85bf55dc6102412d8fc86dcdf78997e8d890cfc9167",
+    "07a1fedecf99a3e6cf80245d704c0dafd467679722e5e8ef06605b1e0afe18ec",
+    "aef1d21dc9d3cee697323342d04fa9a61cd56a2c82471841397408f35b94df09",
+    "e052dc97bc17ea44511cc7ee5347ed225bbabc3f3a4c9bb2d76a18e6a0d2862d",
+    "6cee2b710de881bcccdb40546c0f2f1bfebfc7f4484d2c10209a2ddb6e27bf56",
+    "cedc618ecc0f75b0b37340bde55a304d0492722927803ff992f4e3bccfcaba32",
+    "a5a621938f95466cd1bb6ff3a14c51711260706e5c1877c06c0eb2b1b010b016",
+    "12dbef0d367c4dd9d78bf8a0122f68813e9bb937cc0dc41328a4eb7c1db68c75",
+    "28821e9d029e7246b2748877cb2f71c9f2c88803464534f2f637919d25818ae0",
+    "4aab9e2b4592fba778876b95d2668b184b903bf764b26353ea9d36a305bc804f",
+    "b62e5aac014bb28329c96de8feabb7246e7073a992dfa1405506174a43cd51b3"
+  ],
+  "analysis_cache": {
+    "4aebf1aaf02f87212f8fba3c882d3f228f58502fa76418fb7aaf73fdbd675af2": {
+      "summary": "龙神，找到1组明确的正反打对话，属于同一办公室内连续交流的男女两人。",
+      "pairs": [
+        {
+          "frame_a": 10,
+          "frame_b": 16,
+          "reason": "男子正面中近景中，女子的帽子、后脑及条纹肩部位于右前景；反向镜头清晰展示女子正脸，男子侧脸及浅色风衣肩部位于左前景。两人相向注视，前段双人画面也确认其交流关系，构成明确正反打。所选两张脸部清晰、眼睛睁开。",
+          "needs_review": false,
+          "span_start": 0,
+          "span_end": 23,
+          "person_a": "短发向后梳、额头较高的男子，穿浅色翻领风衣、白衬衫和花纹领带。",
+          "person_b": "深色卷发、弯眉的女子，戴斜檐人字纹高帽，穿条纹西装及深色系带领口上衣。"
+        }
+      ]
+    },
+    "3f391e2c7cd4b0653cd4a85bf55dc6102412d8fc86dcdf78997e8d890cfc9167": {
+      "summary": "龙神，找到1组明确的面对面对话，以及1组需复核通话关系的交叉剪辑候选。",
+      "pairs": [
+        {
+          "frame_a": 0,
+          "frame_b": 4,
+          "reason": "女方面部朝左上方看向男子；反向镜头中男子面向右侧女子说话，前景可见同一女子的条纹帽与肩部。双方位置、视线和过肩构图相互对应，交流关系明确。",
+          "needs_review": false,
+          "span_start": 0,
+          "span_end": 6,
+          "person_a": "卷曲深色头发、细眉女子，戴折线纹高顶帽，穿浅色条纹外套及深色系带领口。",
+          "person_b": "深色侧分后梳短发、长脸男子，穿浅色宽领风衣、白衬衫和花纹领带。"
+        },
+        {
+          "frame_a": 8,
+          "frame_b": 11,
+          "reason": "女子持老式电话讲话，随后切至办公室内男子持电话回应，再切回女子继续讲话，形成通话交叉剪辑。两人各有清晰独立镜头，但身处不同空间，仅凭静帧不能确认电话另一端就是对方，需复核。",
+          "needs_review": true,
+          "span_start": 7,
+          "span_end": 23,
+          "person_a": "深色齐颈卷发、弧形细眉女子，戴浅色宽帽檐帽，穿深色细条纹西装和浅色内搭。",
+          "person_b": "发际线较高、侧分后梳短发的长脸男子，穿深色西装和花纹领带，坐于办公桌后持电话。"
+        }
+      ]
+    },
+    "07a1fedecf99a3e6cf80245d704c0dafd467679722e5e8ef06605b1e0afe18ec": {
+      "summary": "龙神，发现两段疑似同一男女之间的电话交叉剪辑；均缺少可确认双方互为通话对象的画面证据，需复核。",
+      "pairs": [
+        {
+          "frame_a": 3,
+          "frame_b": 10,
+          "reason": "女子持分体电话讲话，随后切到办公室男子持电话回应，具备通话交叉剪辑线索；双方不在同一空间，无法仅凭画面确认通话对象，属于不确定候选。",
+          "needs_review": true,
+          "span_start": 0,
+          "span_end": 10,
+          "person_a": "卷曲深色短发、椭圆脸女子，戴斜檐帽，穿细条纹西装和浅色内搭",
+          "person_b": "深色头发向后梳、额头较高的男子，穿深色西装、浅色衬衫和花纹领带"
+        },
+        {
+          "frame_a": 19,
+          "frame_b": 23,
+          "reason": "男子重新拿起电话，随后切至女子在另一处办公桌接听电话的独立镜头；女子已摘帽并换到新位置，另列一段。剪辑提示交流关系，但缺少明确确认，且女子所选画面略有模糊，需复核。",
+          "needs_review": true,
+          "span_start": 19,
+          "span_end": 23,
+          "person_a": "深色头发向后梳、额头较高的男子，穿深色西装、浅色衬衫和花纹领带",
+          "person_b": "卷曲深色短发、椭圆脸女子，未戴帽，穿细条纹西装和浅色内搭"
+        }
+      ]
+    },
+    "aef1d21dc9d3cee697323342d04fa9a61cd56a2c82471841397408f35b94df09": {
+      "summary": "龙神，找到一组明确的男女正反打对话；同室双人镜头及相反视线提供交流关系证据。",
+      "pairs": [
+        {
+          "frame_a": 9,
+          "frame_b": 13,
+          "reason": "女子朝画面左侧看，男子朝画面右侧看；索引6展示男子在窗前、女子在电话桌旁的相对位置，索引16—23进一步展示两人面对面交流。所选两张均为单人清晰镜头，属于同一连续场景。",
+          "needs_review": false,
+          "span_start": 6,
+          "span_end": 23,
+          "person_a": "深色齐肩卷发、额前头发上卷的女子，穿浅色高领内搭和细条纹深色西装。",
+          "person_b": "短发、发际线较高、留细胡须的男子，穿浅色双胸袋衬衫，手持手枪。"
+        }
+      ]
+    },
+    "e052dc97bc17ea44511cc7ee5347ed225bbabc3f3a4c9bb2d76a18e6a0d2862d": {
+      "summary": "龙神，找到一组明确的男女正反打对话，当前附件均属于同一室内连续交流。",
+      "pairs": [
+        {
+          "frame_a": 3,
+          "frame_b": 11,
+          "reason": "女子正面看向画面左侧男子，反向镜头中留胡须的男子面向画面右侧女子；末尾镜头进一步呈现女子背侧与男子正面的相对站位。同一桌面、电话和吊灯支持空间连续性，两人交替张口及相向视线提供交流证据。所选帧主体脸部清楚、眼睛睁开，前景人物仅作为反打关系参照。",
+          "needs_review": false,
+          "span_start": 0,
+          "span_end": 23,
+          "person_a": "深色卷发向后梳起、脸型偏长的女子，穿深色细条纹收腰西装及浅色高领内搭。",
+          "person_b": "短发、细胡须、脸型瘦长的男子，穿浅色双胸袋衬衫和深色长裤，手持左轮手枪。"
+        }
+      ]
+    },
+    "6cee2b710de881bcccdb40546c0f2f1bfebfc7f4484d2c10209a2ddb6e27bf56": {
+      "summary": "龙神，找到一组明确的男女正反打对话；后段男子转向窗外举枪，未另建配组。",
+      "pairs": [
+        {
+          "frame_a": 0,
+          "frame_b": 1,
+          "reason": "两图呈现同一办公室桌边的相反视角：图0女子正面朝向左侧男子，图1男子正面看向右侧女子。桌面电话、吊灯及双方前景位置对应，能确认交流关系；两人脸部清晰、眼睛睁开。",
+          "needs_review": false,
+          "span_start": 0,
+          "span_end": 9,
+          "person_a": "深色卷曲齐肩发女子，面容清晰，穿宽翻领细条纹深色西装和浅色高领内搭。",
+          "person_b": "短发、上唇留细胡须男子，穿双胸袋浅色衬衫和深色长裤，右手持手枪。"
+        }
+      ]
+    },
+    "cedc618ecc0f75b0b37340bde55a304d0492722927803ff992f4e3bccfcaba32": {
+      "clusters": [
+        {
+          "members": [
+            0,
+            1
+          ],
+          "representative": 0
+        },
+        {
+          "members": [
+            2,
+            3
+          ],
+          "representative": 2
+        }
+      ]
+    },
+    "a5a621938f95466cd1bb6ff3a14c51711260706e5c1877c06c0eb2b1b010b016": {
+      "clusters": [
+        {
+          "members": [
+            0
+          ],
+          "representative": 0
+        },
+        {
+          "members": [
+            1
+          ],
+          "representative": 1
+        },
+        {
+          "members": [
+            2
+          ],
+          "representative": 2
+        },
+        {
+          "members": [
+            3,
+            4,
+            5
+          ],
+          "representative": 4
+        }
+      ]
+    },
+    "12dbef0d367c4dd9d78bf8a0122f68813e9bb937cc0dc41328a4eb7c1db68c75": {
+      "summary": "龙神，确认是两个不同真人在同一连续场景中的对话正反打，返回一组明确配对。",
+      "pairs": [
+        {
+          "frame_a": 2,
+          "frame_b": 1,
+          "reason": "男子正面镜头右前景可见女子的条纹帽、卷发和条纹肩部；女子正面镜头左前景可见男子的侧脸及浅色风衣肩部。两人相向注视，前景人物与反向主体对应，交流关系明确。所选主体脸部清晰、眼睛睁开且无遮挡。",
+          "needs_review": false,
+          "span_start": null,
+          "span_end": null,
+          "person_a": "短发后梳、穿浅色风衣和花纹领带的男子",
+          "person_b": "戴条纹高顶宽檐帽、穿条纹外套的深色卷发女子"
+        }
+      ]
+    },
+    "28821e9d029e7246b2748877cb2f71c9f2c88803464534f2f637919d25818ae0": {
+      "summary": "龙神，A/B明确是两个不同真人，均有清晰独立的持电话镜头；可列为通话交叉剪辑候选，但静帧不足以确认双方正在彼此通话，需复核。",
+      "pairs": [
+        {
+          "frame_a": 0,
+          "frame_b": 1,
+          "reason": "女子面向右侧持老式电话讲话，男子在办公室持电话听筒、面向左侧回应，视线方向相反，具备通话剪辑的画面线索。两张均为清晰单人中近景、眼睛睁开且脸部无遮挡；但不同空间的静帧不能独立证实交流关系，不能判为明确成功。",
+          "needs_review": true,
+          "span_start": null,
+          "span_end": null,
+          "person_a": "戴宽檐帽、穿深色细条纹西装的短卷发女子",
+          "person_b": "头发后梳、穿深色西装及花纹领带的男子"
+        }
+      ]
+    },
+    "4aab9e2b4592fba778876b95d2668b184b903bf764b26353ea9d36a305bc804f": {
+      "summary": "龙神，A/B确为两个不同真人，可保留一组电话对话候选；双方独立接听电话及镜头衔接支持交流关系，但静帧无法确认彼此为通话对象，仍需复核。",
+      "pairs": [
+        {
+          "frame_a": 0,
+          "frame_b": 1,
+          "reason": "男子与女子分别在办公桌旁持电话听筒，均为脸部清晰、睁眼且无遮挡的独立画面。镜头衔接提示电话交流，但没有直接相向视线或其他足以确认双方互通电话的画面证据，因此属于不确定候选。",
+          "needs_review": true,
+          "span_start": null,
+          "span_end": null,
+          "person_a": "短发后梳、穿深色西装和花纹领带的男子",
+          "person_b": "深色卷发、穿深色细条纹西装和浅色内搭的女子"
+        }
+      ]
+    },
+    "b62e5aac014bb28329c96de8feabb7246e7073a992dfa1405506174a43cd51b3": {
+      "summary": "龙神，确认是两个不同真人在同一连续场景中的对话正反打，返回一组。",
+      "pairs": [
+        {
+          "frame_a": 3,
+          "frame_b": 1,
+          "reason": "女子穿深色条纹西装、浅色高领内搭，正面望向画面左侧；留胡须、穿浅色衬衫的男子反向望向画面右侧。其余附件呈现两人隔桌相向的站位，同一吊灯、电话和窗户支持场景连续性。所选女子为独立清晰画面，男子脸部清晰、睁眼，身份与两张锚点一致。",
+          "needs_review": false,
+          "span_start": null,
+          "span_end": null,
+          "person_a": "卷发女子，深色条纹西装配浅色高领内搭",
+          "person_b": "短发留胡须男子，浅色双胸袋衬衫"
+        }
+      ]
+    }
+  },
+  "analysis_requests_started": 12,
+  "analysis_usage": {
+    "4aebf1aaf02f87212f8fba3c882d3f228f58502fa76418fb7aaf73fdbd675af2": {
+      "input_tokens": 36339,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 244,
+      "reasoning_output_tokens": 0
+    },
+    "3f391e2c7cd4b0653cd4a85bf55dc6102412d8fc86dcdf78997e8d890cfc9167": {
+      "input_tokens": 35974,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 443,
+      "reasoning_output_tokens": 59
+    },
+    "07a1fedecf99a3e6cf80245d704c0dafd467679722e5e8ef06605b1e0afe18ec": {
+      "input_tokens": 35976,
+      "cached_input_tokens": 23552,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 478,
+      "reasoning_output_tokens": 105
+    },
+    "aef1d21dc9d3cee697323342d04fa9a61cd56a2c82471841397408f35b94df09": {
+      "input_tokens": 35988,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 218,
+      "reasoning_output_tokens": 0
+    },
+    "e052dc97bc17ea44511cc7ee5347ed225bbabc3f3a4c9bb2d76a18e6a0d2862d": {
+      "input_tokens": 35980,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 256,
+      "reasoning_output_tokens": 0
+    },
+    "6cee2b710de881bcccdb40546c0f2f1bfebfc7f4484d2c10209a2ddb6e27bf56": {
+      "input_tokens": 29870,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 220,
+      "reasoning_output_tokens": 0
+    },
+    "cedc618ecc0f75b0b37340bde55a304d0492722927803ff992f4e3bccfcaba32": {
+      "input_tokens": 29047,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 60,
+      "reasoning_output_tokens": 21
+    },
+    "a5a621938f95466cd1bb6ff3a14c51711260706e5c1877c06c0eb2b1b010b016": {
+      "input_tokens": 30998,
+      "cached_input_tokens": 23424,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 83,
+      "reasoning_output_tokens": 26
+    },
+    "12dbef0d367c4dd9d78bf8a0122f68813e9bb937cc0dc41328a4eb7c1db68c75": {
+      "input_tokens": 30956,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 244,
+      "reasoning_output_tokens": 39
+    },
+    "28821e9d029e7246b2748877cb2f71c9f2c88803464534f2f637919d25818ae0": {
+      "input_tokens": 29573,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 255,
+      "reasoning_output_tokens": 23
+    },
+    "4aab9e2b4592fba778876b95d2668b184b903bf764b26353ea9d36a305bc804f": {
+      "input_tokens": 29620,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 247,
+      "reasoning_output_tokens": 31
+    },
+    "b62e5aac014bb28329c96de8feabb7246e7073a992dfa1405506174a43cd51b3": {
+      "input_tokens": 30965,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 218,
+      "reasoning_output_tokens": 0
+    }
+  },
+  "analysis_progress": {
+    "step": "complete",
+    "completed": 4,
+    "total": 4
+  },
+  "analysis_proposals": [
+    {
+      "frame_a": 10,
+      "frame_b": 16,
+      "reason": "男子正面中近景中，女子的帽子、后脑及条纹肩部位于右前景；反向镜头清晰展示女子正脸，男子侧脸及浅色风衣肩部位于左前景。两人相向注视，前段双人画面也确认其交流关系，构成明确正反打。所选两张脸部清晰、眼睛睁开。",
+      "needs_review": false,
+      "span_start": 0,
+      "span_end": 23,
+      "person_a": "短发向后梳、额头较高的男子，穿浅色翻领风衣、白衬衫和花纹领带。",
+      "person_b": "深色卷发、弯眉的女子，戴斜檐人字纹高帽，穿条纹西装及深色系带领口上衣。",
+      "scene_start_seconds": 0.13333333333333333,
+      "scene_end_seconds": 28.933333333333334
+    },
+    {
+      "frame_a": 20,
+      "frame_b": 24,
+      "reason": "女方面部朝左上方看向男子；反向镜头中男子面向右侧女子说话，前景可见同一女子的条纹帽与肩部。双方位置、视线和过肩构图相互对应，交流关系明确。",
+      "needs_review": false,
+      "span_start": 0,
+      "span_end": 6,
+      "person_a": "卷曲深色头发、细眉女子，戴折线纹高顶帽，穿浅色条纹外套及深色系带领口。",
+      "person_b": "深色侧分后梳短发、长脸男子，穿浅色宽领风衣、白衬衫和花纹领带。",
+      "scene_start_seconds": 26.166666666666668,
+      "scene_end_seconds": 31.733333333333334
+    },
+    {
+      "frame_a": 28,
+      "frame_b": 31,
+      "reason": "女子持老式电话讲话，随后切至办公室内男子持电话回应，再切回女子继续讲话，形成通话交叉剪辑。两人各有清晰独立镜头，但身处不同空间，仅凭静帧不能确认电话另一端就是对方，需复核。",
+      "needs_review": true,
+      "span_start": 7,
+      "span_end": 23,
+      "person_a": "深色齐颈卷发、弧形细眉女子，戴浅色宽帽檐帽，穿深色细条纹西装和浅色内搭。",
+      "person_b": "发际线较高、侧分后梳短发的长脸男子，穿深色西装和花纹领带，坐于办公桌后持电话。",
+      "scene_start_seconds": 33.56666666666666,
+      "scene_end_seconds": 53.46666666666667
+    },
+    {
+      "frame_a": 43,
+      "frame_b": 50,
+      "reason": "女子持分体电话讲话，随后切到办公室男子持电话回应，具备通话交叉剪辑线索；双方不在同一空间，无法仅凭画面确认通话对象，属于不确定候选。",
+      "needs_review": true,
+      "span_start": 0,
+      "span_end": 10,
+      "person_a": "卷曲深色短发、椭圆脸女子，戴斜檐帽，穿细条纹西装和浅色内搭",
+      "person_b": "深色头发向后梳、额头较高的男子，穿深色西装、浅色衬衫和花纹领带",
+      "scene_start_seconds": 49.46666666666667,
+      "scene_end_seconds": 65.26666666666667
+    },
+    {
+      "frame_a": 59,
+      "frame_b": 63,
+      "reason": "男子重新拿起电话，随后切至女子在另一处办公桌接听电话的独立镜头；女子已摘帽并换到新位置，另列一段。剪辑提示交流关系，但缺少明确确认，且女子所选画面略有模糊，需复核。",
+      "needs_review": true,
+      "span_start": 19,
+      "span_end": 23,
+      "person_a": "深色头发向后梳、额头较高的男子，穿深色西装、浅色衬衫和花纹领带",
+      "person_b": "卷曲深色短发、椭圆脸女子，未戴帽，穿细条纹西装和浅色内搭",
+      "scene_start_seconds": 76.86666666666666,
+      "scene_end_seconds": 83.0
+    },
+    {
+      "frame_a": 69,
+      "frame_b": 73,
+      "reason": "女子朝画面左侧看，男子朝画面右侧看；索引6展示男子在窗前、女子在电话桌旁的相对位置，索引16—23进一步展示两人面对面交流。所选两张均为单人清晰镜头，属于同一连续场景。",
+      "needs_review": false,
+      "span_start": 6,
+      "span_end": 23,
+      "person_a": "深色齐肩卷发、额前头发上卷的女子，穿浅色高领内搭和细条纹深色西装。",
+      "person_b": "短发、发际线较高、留细胡须的男子，穿浅色双胸袋衬衫，手持手枪。",
+      "scene_start_seconds": 87.0,
+      "scene_end_seconds": 111.3
+    },
+    {
+      "frame_a": 83,
+      "frame_b": 91,
+      "reason": "女子正面看向画面左侧男子，反向镜头中留胡须的男子面向画面右侧女子；末尾镜头进一步呈现女子背侧与男子正面的相对站位。同一桌面、电话和吊灯支持空间连续性，两人交替张口及相向视线提供交流证据。所选帧主体脸部清楚、眼睛睁开，前景人物仅作为反打关系参照。",
+      "needs_review": false,
+      "span_start": 0,
+      "span_end": 23,
+      "person_a": "深色卷发向后梳起、脸型偏长的女子，穿深色细条纹收腰西装及浅色高领内搭。",
+      "person_b": "短发、细胡须、脸型瘦长的男子，穿浅色双胸袋衬衫和深色长裤，手持左轮手枪。",
+      "scene_start_seconds": 107.3,
+      "scene_end_seconds": 146.26666666666665
+    },
+    {
+      "frame_a": 100,
+      "frame_b": 101,
+      "reason": "两图呈现同一办公室桌边的相反视角：图0女子正面朝向左侧男子，图1男子正面看向右侧女子。桌面电话、吊灯及双方前景位置对应，能确认交流关系；两人脸部清晰、眼睛睁开。",
+      "needs_review": false,
+      "span_start": 0,
+      "span_end": 9,
+      "person_a": "深色卷曲齐肩发女子，面容清晰，穿宽翻领细条纹深色西装和浅色高领内搭。",
+      "person_b": "短发、上唇留细胡须男子，穿双胸袋浅色衬衫和深色长裤，右手持手枪。",
+      "scene_start_seconds": 140.26666666666665,
+      "scene_end_seconds": 150.96666666666667
+    }
+  ],
+  "analysis_report": {
+    "protocol_version": 4,
+    "sampling": "complete",
+    "discovery_batches": 6,
+    "discovery_images": 110,
+    "candidate_images": 110,
+    "raw_proposals": 8,
+    "ready_groups": 2,
+    "review_groups": 2,
+    "prepared_images": 8,
+    "image_sizes": [
+      [
+        640,
+        480
+      ]
+    ],
+    "codex_requests_started": 12,
+    "cache_hits_this_run": 0,
+    "new_requests_this_run": 12,
+    "usage": {
+      "input_tokens": 391286,
+      "cached_input_tokens": 46976,
+      "output_tokens": 2966
+    },
+    "usage_records": 12
+  },
+  "analysis_elapsed_seconds": 221.017
+}

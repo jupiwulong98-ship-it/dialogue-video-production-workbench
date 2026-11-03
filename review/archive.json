@@ -1,0 +1,17 @@
+{
+  "filename": "review-evidence-20261103.zip",
+  "bytes": 314068511,
+  "sha256": "9c28aec808fa90e10c0b3013f331d11a2cf329262bcea880928b28ca06d2d744",
+  "files": 6393,
+  "created_date": "2026-11-03",
+  "omitted": [
+    "两部完整源电影（见 sources.json）",
+    "重复扫描候选副本",
+    "账号配置、数据库和锁文件"
+  ],
+  "sanitization": [
+    "本机绝对项目路径替换为 PROJECT_ROOT",
+    "用户目录、邮箱、模型会话编号及令牌匹配脱敏"
+  ],
+  "notice": "历史脚本仅作证据，含脱敏路径；不会自动恢复任务或运行识别。"
+}
