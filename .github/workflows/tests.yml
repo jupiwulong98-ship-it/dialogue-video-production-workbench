@@ -1,0 +1,38 @@
+name: Python regression
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[test]'
+      - name: Check syntax
+        run: python -m compileall -q dialogue_tool tests
+      - name: Run regression tests (no paid generation)
+        run: python -m pytest -q
+
+  windows-cpu-smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install without GPU extras
+        shell: pwsh
+        run: python -m pip install -e ".[test]"
+      - name: Python compile check
+        shell: pwsh
+        run: python -m compileall -q dialogue_tool tests
+      - name: Run Windows CPU smoke tests (no paid generation)
+        shell: pwsh
+        run: python -m pytest -q tests/test_windows_cpu.py tests/test_generation.py tests/test_desktop.py tests/test_project_run.py tests/test_dialogue_analysis.py tests/test_episode_first.py

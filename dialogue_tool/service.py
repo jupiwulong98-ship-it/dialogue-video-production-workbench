@@ -77,7 +77,13 @@ class Service:
                     continue
                 if progress:
                     progress(.16 + .49 * index / len(batches), f'识别对话 {index + 1}/{len(batches)}，已发现 {len(proposals)} 组候选')
-                context = ('人物描述必须结合脸部和服装，不能只靠同色衣服。时间点（秒）、镜头编号：'
+                context = ('先按连续交流划分对话片段，再为每段寻找标准正反打的 A/B 身份锚点。'
+                           '同一场交流反复切 A/B 仍只提议一组，不要按每次切镜重复提议；'
+                           '同场不同人物组合的独立交流可以分开。跨场景不得合并。'
+                           '必须有两个不同真人的独立镜头和明确交流证据，不能用同框两张图凑对；'
+                           '缺少反打的片段只在summary说明，不要编造A/B。'
+                           '用span_start/span_end覆盖本批次可见的整段交流，以便后续在全段选最佳帧。'
+                           '人物描述必须结合脸部和服装，不能只靠同色衣服。时间点（秒）、镜头编号：'
                            + json.dumps([{'time': round(f['seconds'], 3), 'shot': f['shot_id']} for f in batch])
                            + '。上一批场景摘要（只辅助，不可虚构当前图片）：' + previous_summary)
                 result = self._cached_request(project, 'discovery', batch, context)
@@ -96,22 +102,41 @@ class Service:
             project['analysis_proposals'] = proposals
             self.projects.save(project)
             proposals = self._deduplicate(project, proposals, frames, progress)
-            groups = []
+            # 第一阶段：先确认独立的连续对话片段（同段反复切镜已经去重）。
+            # 第二阶段：在每段的所有候选镜头中选择一组最适合图生视频的 A/B。
+            groups, excluded, episodes = [], [], []
             for index, proposal in enumerate(proposals):
                 if progress:
                     progress(.75 + .18 * index / max(1, len(proposals)), f'二次检查与选图 {index + 1}/{len(proposals)}')
                 choices = refinement_frames(proposal, frames)
-                context = ('复核任务：仅复核这一组，不寻找其他组。附件0是人物A身份锚点，1是人物B身份锚点，其余是同镜头备选。'
-                           '确认A/B确为两个不同真人、同一连续场景的对话正反打。两张同一人的不同表情、无交流证据、'
-                           '两张多人合照、机器人、旁观者、屏幕人物均不算明确成功。'
-                           '确认后只返回一组，允许从备选替换锚点，确保人物身份不变。优先单人清晰中近景、睁眼、'
-                           '不遮脸和自然表情，避开明显字幕遮脸、切换模糊。无法确认返回空pairs并解释summary；'
-                           '仍有疑问needs_review=true。span_start/span_end填null。'
+                context = ('复核任务：这是已识别的一段连续人物交流；只从本段里选最佳的一组 A/B，不拆成多组。'
+                           '附件0和1是初步识别的人物身份锚点，其余来自同段的不同镜头/时刻。'
+                           '必须为两个不同真人、同一连续交流的标准正反打，两张图分别是清楚的单人主体，'
+                           '脸部可见、无遮挡或少遮挡、接近正脸、画面不模糊、表情自然、无字幕压脸。'
+                           '允许替换到本段更清晰的其他镜头，但人物身份不得改变。'
+                           '同一人的不同表情、多人合照、背影、严重侧脸/遮挡、机器人、屏幕人物、'
+                           '没有独立反打或不能证明交流关系，均不得进入成功结果。'
+                           '如果任一侧没有可用于图生视频的清晰正脸，返回空pairs并解释原因；'
+                           '不请求人工补选。若仍有疑虑，needs_review=true，系统将自动排除。'
+                           '仅返回一组；span_start/span_end填null。'
                            '原识别说明：' + proposal['reason'] + '；时间和镜头：'
                            + json.dumps([{'time': round(f['seconds'], 3), 'shot': f['shot_id']} for f in choices]))
                 verified = self._cached_request(project, 'verify', choices, context)
                 group = verified_group(proposal, verified, choices)
-                groups.append(group)
+                episode = {'index': index + 1, 'start_seconds': proposal['scene_start_seconds'],
+                           'end_seconds': proposal['scene_end_seconds'],
+                           'anchor_a': proposal['frame_a'], 'anchor_b': proposal['frame_b']}
+                if group['needs_review']:
+                    episode.update(status='excluded', reason=group.get('verification_reason') or '缺少合格的正反打')
+                    excluded.append(episode)
+                else:
+                    episode.update(status='ready', group_id=group['id'])
+                    groups.append(group)
+                episodes.append(episode)
+            # 无合格独立反打的片段不放入待确认，也不会要求用户手动筛选。
+            project['dialogue_segments'] = episodes
+            project['excluded_dialogues'] = excluded
+            self.projects.save(project)
             prepared, sizes = 0, set()
             from PIL import Image
             for index, group in enumerate(groups):
@@ -124,13 +149,14 @@ class Service:
                         sizes.add(image.size)
                     prepared += 1
             project['groups'] = groups
-            ready = sum(not g['needs_review'] for g in groups)
+            ready = len(groups)
             usage = [project.get('analysis_usage', {})[key] for key in project['analysis_used_keys']
                      if key in project.get('analysis_usage', {})]
             project['analysis_report'] = {
-                'protocol_version': 4, 'sampling': 'complete', 'discovery_batches': len(batches), 'discovery_images': len(discovery),
+                'protocol_version': 5, 'sampling': 'complete', 'discovery_batches': len(batches), 'discovery_images': len(discovery),
+                'dialogue_segments': len(episodes), 'excluded_segments': len(excluded),
                 'candidate_images': len(frames), 'raw_proposals': len(project['analysis_proposals']),
-                'ready_groups': ready, 'review_groups': len(groups) - ready, 'prepared_images': prepared,
+                'ready_groups': ready, 'review_groups': 0, 'prepared_images': prepared,
                 'image_sizes': sorted(sizes), 'codex_requests_started': project.get('analysis_requests_started', 0),
                 'cache_hits_this_run': project.get('analysis_cache_hits', 0) - hits_before,
                 'new_requests_this_run': project.get('analysis_requests_started', 0) - requests_before,
@@ -140,7 +166,7 @@ class Service:
             project['analysis_progress'] = {'step': 'complete', 'completed': len(groups), 'total': len(groups)}
             self.projects.save(project)
             if progress:
-                progress(1, f'拆解完成：{ready} 组对话结果，{len(groups) - ready} 组待确认')
+                progress(1, f'拆解完成：{ready} 组可生成正反打，{len(excluded)} 段不合格已自动排除')
             return project
         except Exception as exc:
             project.update(phase='error', error=str(exc), error_code=getattr(exc, 'code', 'processing_error'))
@@ -150,7 +176,7 @@ class Service:
     def _cached_request(self, project, kind, frames, context):
         key = hashlib.sha256(json.dumps({'kind': kind, 'frames': [(f['id'], f['seconds']) for f in frames],
                                          'source': project['source_sha256'], 'context': context,
-                                         'version': 2}, sort_keys=True).encode()).hexdigest()
+                                         'version': 3}, sort_keys=True).encode()).hexdigest()
         cache = project.setdefault('analysis_cache', {})
         used = project.setdefault('analysis_used_keys', [])
         if key not in used:

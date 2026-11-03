@@ -21,8 +21,13 @@ def composite_repair(source: Image.Image, generated: Image.Image, mask: Image.Im
 
 def repair_image(source: Path, mask_path: Path, output: Path, model_path: Path) -> dict:
     import time
-    import numpy as np
-    import torch
+    if not model_path.is_file():
+        raise ValueError('缺少本地 LaMa 模型；可跳过修图，继续拆组和即梦生成')
+    try:
+        import numpy as np
+        import torch
+    except ImportError as exc:
+        raise ValueError('修图需要额外安装 CPU PyTorch；无独显设备的主流程不需要 PyTorch') from exc
 
     if output.exists() or source.resolve() == output.resolve():
         raise ValueError('修复图不能覆盖输入或已有文件')

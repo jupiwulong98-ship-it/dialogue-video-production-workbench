@@ -2,6 +2,7 @@
 
 import base64
 import io
+import os
 import threading
 from pathlib import Path
 
@@ -11,6 +12,7 @@ from .media import probe
 from .projects import original_frame, project_asset
 from .providers import run
 from .service import Service
+from .generation import CanvasWorkflow
 from .settings import ROOT, settings
 from .project_run import analysis_running
 
@@ -18,6 +20,7 @@ from .project_run import analysis_running
 class DesktopAPI:
     def __init__(self, service: Service):
         self._service = service
+        self._generation = CanvasWorkflow(service)
         self._window = None
         self.lock = threading.RLock()
         items = service.projects.list()
@@ -164,6 +167,41 @@ class DesktopAPI:
             identifier, destination = self.current, Path(chosen[0])
         return self._start(lambda: '图片已导出到：' + str(self._service.export(identifier, destination)))
 
+    def generation_models(self):
+        return self._generation.models()
+
+    def generation_configure(self, model, duration, prompt, project_id):
+        with self.lock:
+            self._idle()
+            if not project_id or self.current != project_id:
+                raise ValueError("项目已经切换")
+            result = self._generation.configure(project_id, model, duration, prompt)
+            self.version += 1
+            return {"model": result["generation"]["model"], "duration": result["generation"]["duration"]}
+
+    def generation_prepare(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.prepare(identifier) and "生成草稿已准备好，尚未扣费"))
+
+    def generation_quote(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.quote(identifier) and "即梦积分报价已返回，请核对后手动批准"))
+
+    def generation_run(self, approved_ceiling, project_id):
+        with self.lock:
+            self._idle()
+            if self.current != project_id:
+                raise ValueError("项目已切换")
+        return self._start(lambda: (self._generation.run_approved(project_id, approved_ceiling) and "即梦任务已提交，使用原任务ID查询"))
+
+    def generation_refresh(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.refresh(identifier) and "任务状态已更新"))
+
+    def generation_download(self):
+        identifier = self.current
+        return self._start(lambda: (self._generation.download(identifier) and "已下载并核验可用视频"))
+
     def check_environment(self):
         result = {}
         for name in ('codex', 'ffmpeg', 'ffprobe'):
@@ -182,8 +220,25 @@ class DesktopAPI:
             result['codex_login'] = {'ok': auth.returncode == 0, 'message': (auth.stdout + auth.stderr).strip()}
         except Exception as exc:
             result['codex_login'] = {'ok': False, 'message': str(exc)}
-        result['local_model'] = {'ok': Path(self._service.config['model']).is_file(), 'message': '本地 LaMa 模型'}
-        result['generation'] = {'ok': None, 'message': '按要求暂不接入即梦，不进行登录或生成'}
+        import importlib.util
+        cpu_model = Path(self._service.config['model']).is_file()
+        cpu_torch = importlib.util.find_spec('torch') is not None
+        result['local_model'] = {'ok': cpu_model and cpu_torch,
+                                 'message': 'LaMa CPU 修复可用' if cpu_model and cpu_torch else
+                                            'CPU 修复为可选功能：尚缺本地模型或 PyTorch；拆组和即梦不受影响'}
+        canvas = self._service.config.get('dreamina_canvas')
+        if canvas:
+            try:
+                detected = run([canvas, 'version'], 15)
+                ok_version = detected.returncode == 0
+                ok_account = ok_version and run([canvas, '--format', 'json', 'auth', 'account'], 20).returncode == 0
+                result['generation'] = {'ok': ok_account,
+                    'message': '即梦 CLI 已安装且账户已授权' if ok_account else
+                               '即梦 CLI 存在，但请在 PowerShell 验证版本和登录状态'}
+            except Exception:
+                result['generation'] = {'ok': False, 'message': '即梦 CLI 启动失败，请核对安装路径和登录'}
+        else:
+            result['generation'] = {'ok': False, 'message': '未找到即梦 CLI，Windows 可原生安装'}
         return result
 
 
@@ -193,4 +248,8 @@ def launch():
     html = (Path(__file__).parent / 'ui' / 'index.html').read_text(encoding='utf-8')
     api._window = webview.create_window('对话视频工具', html=html,
                                        js_api=api, width=1280, height=850, min_size=(1000, 700))
-    webview.start(debug=False)
+    # Require the modern WebView2 engine on Windows 11; IE11 cannot run our UI.
+    if os.name == 'nt':
+        webview.start(gui='edgechromium', debug=False)
+    else:
+        webview.start(debug=False)

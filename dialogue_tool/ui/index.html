@@ -22,7 +22,7 @@
   <div class="project-switch"><label class="overline" for="projectPicker">本地项目</label><select id="projectPicker" class="project-picker" onchange="selectProject(this.value)"><option>正在载入…</option></select></div>
   <div class="side-heading"><span>对话图片组 <b class="count" id="groupCount">0</b></span><button id="addGroupBtn" class="icon ghost" onclick="addGroup()" aria-label="手动添加图片组" title="手动添加图片组">＋</button></div>
   <div class="group-filters"><button id="readyFilter" class="active" onclick="setGroupFilter('ready')">对话结果 <b id="readyCount">0</b></button><button id="reviewFilter" onclick="setGroupFilter('review')">待确认 <b id="reviewCount">0</b></button></div><div class="group-list" id="groups"></div>
-  <div class="side-bottom"><div class="summary"><span>选中导出 <b id="selectedCount">0</b> 组</span><span>已修复 <b id="repairCount">0</b> 张</span></div><button class="ghost" onclick="environment()">⚙ &nbsp;运行环境<span style="float:right;color:#626d80">本机</span></button></div>
+  <div class="side-bottom"><div class="summary"><span>选中导出 <b id="selectedCount">0</b> 组</span><span>已修复 <b id="repairCount">0</b> 张</span><span title="已发现但未通过正反打二次核验的片段，不代表全部漏检对话">自动排除 <b id="excludedCount">0</b> 段</span></div><button class="ghost" onclick="environment()">⚙ &nbsp;运行环境<span style="float:right;color:#626d80">本机</span></button></div>
  </aside>
  <main class="main">
   <header class="topbar"><div class="breadcrumb"><span class="muted">工作区</span><span class="muted">/</span><span id="sourceName" class="project-title">对话素材整理</span></div><div class="toolbar"><button class="ghost small" onclick="chooseVideo()">＋ 导入视频</button><span class="toolbar-sep"></span><span class="dirty-label" id="dirtyLabel"></span><button class="small" id="saveBtn" onclick="saveDraft()">保存</button><button class="primary small" id="exportBtn" onclick="exportGroups()">导出图片组 ↗</button></div></header>
@@ -37,7 +37,28 @@
     <p id="stageCaption" class="stage-caption hidden">检查两张截图是否属于同一场对话；需要调整时点击“更换截图”</p>
     <section id="candidatesPanel" class="filmstrip hidden"><div class="film-heading"><div class="label"><h2>候选画面 <span class="muted" id="frameCount">0</span></h2><span class="target-chip" id="targetLabel">选择图片组后换图</span></div><div class="pagination"><span id="pageLabel"></span><button class="small ghost" id="prevPage" onclick="changePage(-1)" aria-label="上一页候选">‹</button><button class="small ghost" id="nextPage" onclick="changePage(1)" aria-label="下一页候选">›</button><button class="small ghost" onclick="toggleCandidates(false)" aria-label="收起候选画面">×</button></div></div><div id="frames" class="frames"></div></section>
    </section>
-   <aside class="inspector"><div class="inspector-heading"><h2>图片组设置</h2><span class="tag">本地保存</span></div><div id="inspectorContent"></div><div class="inspector-section"><div class="field-label"><span>素材概览</span><span>当前项目</span></div><div class="facts"><span>镜头</span><strong id="shotCount">—</strong><span>候选帧</span><strong id="frameFact">—</strong><span>处理方式</span><strong>本地 LaMa</strong><span>视频生成</span><strong>暂未接入</strong></div><div id="sourcePath" class="prompt-note" style="overflow-wrap:anywhere;margin-top:16px"></div></div><div class="inspector-foot"><p class="note">原图、提示词和修复记录均保存在本地项目中。</p></div></aside>
+   <aside class="inspector"><div class="inspector-heading"><h2>图片组设置</h2><span class="tag">本地保存</span></div><div id="inspectorContent"></div>
+<div class="inspector-section" id="generationPanel">
+ <div class="field-label"><span>即梦视频生成</span><span>官方 Canvas CLI</span></div>
+ <p class="note" style="margin-bottom:9px">A/B 为两个人物参考图，不是视频首尾帧。准备草稿不会扣积分；执行必须先报价并确认。</p>
+ <label class="field-label" for="genModel"><span>视频模型标识</span></label>
+ <input id="genModel" placeholder="通过“查询模型”获取" style="width:100%;padding:7px;margin-bottom:8px">
+ <label class="field-label" for="genDuration"><span>生成时长（秒）</span></label>
+ <input id="genDuration" type="number" min="1" max="60" value="5" style="width:100%;padding:7px;margin-bottom:8px">
+ <label class="field-label" for="genPrompt"><span>全局提示词</span></label>
+ <textarea id="genPrompt" placeholder="所有选中图片组的基础提示词，与每组单独提示词合并" rows="3"></textarea>
+ <p class="prompt-note">客户端需要先安装并登录 dreamina-canvas。这里不保存账号密码或 API Key。</p>
+ <button class="repair-action" onclick="showGenerationModels()">查询可用视频模型</button>
+ <pre id="genModels" class="note" style="white-space:pre-wrap;max-height:105px;overflow:auto;font-size:10px"></pre>
+ <button class="repair-action" onclick="prepareGeneration()">① 保存配置并准备草稿（不扣积分）</button>
+ <button class="repair-action" onclick="quoteGeneration()">② 查询本批积分报价</button>
+ <div class="prompt-note" id="genQuote">尚未查询积分报价</div>
+ <button class="primary repair-action" id="genRunBtn" onclick="runGeneration()">③ 确认额度并提交生成</button>
+ <button class="repair-action" onclick="refreshGeneration()">④ 更新任务状态</button>
+ <button class="repair-action" onclick="downloadGeneration()">⑤ 下载已完成的视频</button>
+ <div class="prompt-note" id="genStatus"></div>
+</div>
+<div class="inspector-section"><div class="field-label"><span>素材概览</span><span>当前项目</span></div><div class="facts"><span>镜头</span><strong id="shotCount">—</strong><span>候选帧</span><strong id="frameFact">—</strong><span>处理方式</span><strong>本地 LaMa</strong><span>视频生成</span><strong>即梦画布 CLI</strong></div><div id="sourcePath" class="prompt-note" style="overflow-wrap:anywhere;margin-top:16px"></div></div><div class="inspector-foot"><p class="note">原图、提示词和修复记录均保存在本地项目中。</p></div></aside>
   </div>
  </main>
 </div>
@@ -108,6 +129,7 @@ function updateCounts(){
  $('readyCount').textContent=draft.filter(g=>!g.needs_review).length;$('reviewCount').textContent=draft.filter(g=>g.needs_review).length;
  $('selectedCount').textContent=draft.filter(g=>g.selected).length;
  $('repairCount').textContent=draft.reduce((n,g)=>n+Number(!!g.repaired_a)+Number(!!g.repaired_b),0);
+ $('excludedCount').textContent=state?.project?.analysis_report?.excluded_segments??0;
  $('exportBtn').disabled=!!state?.busy||!draft.some(g=>g.selected);
 }
 function renderGroups(){
@@ -219,6 +241,7 @@ function applyBusy(){
  $('shotsBtn').disabled=!p?.scan?.shots?.length;$('shotsBtn').textContent=`全部镜头${p?.scan?.shots?.length?'（'+p.scan.shots.length+'）':''}`;
  $('replaceBtn').disabled=busy||!allFrames().length;$('addGroupBtn').disabled=busy||allFrames().length<2;$('addManualBtn').disabled=busy||allFrames().length<2;
  $('saveBtn').disabled=busy||!p;$('exportBtn').disabled=busy||!draft.some(g=>g.selected);
+ $('genRunBtn').disabled=busy||!p?.generation?.quote;
  const pages=Math.max(1,Math.ceil(allFrames().length/PAGE_SIZE));
  $('prevPage').disabled=busy||framePage===0;$('nextPage').disabled=busy||framePage>=pages-1;
  if(!currentGroup())document.querySelectorAll('.candidate').forEach(el=>el.disabled=true);
@@ -233,20 +256,80 @@ function poll(force=false){
   }catch(e){$('statusMessage').textContent=e.message||String(e)}finally{pollPending=null}
  })();return pollPending;
 }
+
+async function showGenerationModels(){
+ if(isLocked())return;
+ const result=await call(()=>api.generation_models());
+ if(result) $('genModels').textContent=JSON.stringify(result,null,2).slice(0,2400);
+}
+async function saveGenerationConfiguration(){
+ if(!state?.project||isLocked())return false;
+ if(!await saveDraft())return false;
+ const model=$('genModel').value.trim(),duration=Number($('genDuration').value);
+ const prompt=$('genPrompt').value;
+ if(!model||!Number.isInteger(duration)){toast('请先填写准确视频模型和整数秒数');return false}
+ const result=await call(()=>api.generation_configure(model,duration,prompt,state.project.id));
+ if(!result)return false;
+ await poll(true);return true;
+}
+async function prepareGeneration(){
+ if(!await saveGenerationConfiguration())return;
+ await call(()=>api.generation_prepare());await poll(true);
+}
+async function quoteGeneration(){
+ if(isLocked())return;
+ if(!await saveDraft())return;
+ await call(()=>api.generation_quote());await poll(true);
+}
+async function runGeneration(){
+ if(isLocked())return;
+ const projectId=state?.project?.id,quote=state?.project?.generation?.quote;
+ if(!projectId||!quote){toast('请先查询积分报价');return}
+ // Explicit action-time consent. Do not approve more credits than the displayed quote.
+ const ceiling=quote.ceiling;
+ if(!window.confirm('即梦即将提交 '+quote.group_ids.length+' 个收费视频任务，最高报价 '+ceiling+' 积分。确定消耗额度并开始生成吗？'))return;
+ await call(()=>api.generation_run(ceiling,projectId));await poll(true);
+}
+async function refreshGeneration(){
+ if(isLocked())return;
+ await call(()=>api.generation_refresh());await poll(true);
+}
+async function downloadGeneration(){
+ if(isLocked())return;
+ if(!window.confirm('将已完成的视频下载到当前项目目录 generated-videos，是否继续？'))return;
+ await call(()=>api.generation_download());await poll(true);
+}
+function renderGeneration(project){
+ const settings=project?.generation||{},jobs=Object.values(settings.tasks||{});
+ $('generationPanel').classList.toggle('hidden',!project);
+ if(!project)return;
+ // Do not clobber a focused text box during routine state updates.
+ for(const [key,value] of [['genModel',settings.model||''],['genDuration',settings.duration||5],['genPrompt',settings.global_prompt||'']]){
+  const el=$(key);
+  if(document.activeElement!==el)el.value=value;
+ }
+ const q=settings.quote;
+ $('genQuote').textContent=q?'已报价：'+q.ceiling+' 积分上限 · '+q.group_ids.length+' 个任务（实际执行前仍会重新核价）':'尚未报价；准备草稿不会扣积分';
+ $('genRunBtn').disabled=!q||isLocked();
+ const tally={};
+ for(const t of jobs)tally[t.status]=(tally[t.status]||0)+1;
+ $('genStatus').textContent=jobs.length?'生成任务：'+Object.entries(tally).map(([k,v])=>k+' '+v).join(' / '):'当前项目没有生成任务';
+}
+
 function render(){
  const p=state.project,changed=p?.id!==renderedProjectId;
  $('projectPicker').innerHTML=state.projects.length?state.projects.map(item=>`<option value="${esc(item.id)}" ${p?.id===item.id?'selected':''}>${esc(item.name)}</option>`).join(''):'<option value="">尚未导入视频</option>';
  $('welcome').classList.toggle('hidden',!!p);$('sourcebar').classList.toggle('hidden',!p);$('workspace').classList.toggle('hidden',!p);
  if(changed){activeGroupId=null;framePage=0;targetSide='a';candidatesOpen=false;originalView={a:false,b:false};renderedProjectId=p?.id||null}
  draft=JSON.parse(JSON.stringify(p?.groups||[]));draftProjectId=p?.id||null;
- if(!p){$('sourceName').textContent='对话素材整理';renderGroups();applyBusy();return}
+ if(!p){$('sourceName').textContent='对话素材整理';renderGeneration(null);renderGroups();applyBusy();return}
  if(changed)groupFilter=!draft.length||draft.some(g=>!g.needs_review)?'ready':'review';
  if(!draft.some(g=>g.id===activeGroupId&&inGroupFilter(g)))activeGroupId=draft.find(inGroupFilter)?.id||null;
  $('sourceName').textContent=p.name;$('sourceName').title=p.source;$('sourcePath').textContent=p.source;
  $('shotCount').textContent=p.scan?.shots?.length??'—';$('frameCount').textContent=p.scan?.frames?.length??0;$('frameFact').textContent=p.scan?.frames?.length??'—';
  if(p.scan){$('start').value=p.scan.start;$('end').value=p.scan.end}else if(changed){$('start').value=0;$('end').value=''}
  const ap=p.analysis_progress;$('rangeNote').textContent=p.error_code==='quota_exhausted'?`Codex 额度不足 · 已完成 ${ap?.completed||0}/${ap?.total||0} 批 · 额度恢复后继续`:p.scan?'当前范围已保存 · 完成后直接检查成组截图':'留空结束时间，拆解整部视频 · 使用 Codex 账号额度';
- $('dirtyLabel').textContent='已保存';renderGroups();renderEditor();renderFrames();applyBusy();
+ $('dirtyLabel').textContent='已保存';renderGeneration(p);renderGroups();renderEditor();renderFrames();applyBusy();
  if(p.scan?.shots?.length&&!draft.length&&!state.busy&&openedShotsFor!==p.id)openShots();
 }
 async function openMask(index,side){

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dialogue-video-tool"
 version = "0.1.0"
-description = "Mac first dialogue video validation pipeline"
+description = "CPU-first dialogue workflow and Dreamina Canvas integration for Windows and macOS"
 requires-python = ">=3.11,<3.13"
 dependencies = ["Pillow>=10,<13", "jsonschema>=4.22,<5", "scenedetect>=0.7.2,<0.8", "opencv-python-headless>=4.8,<5"]
 
